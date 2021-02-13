@@ -12,7 +12,7 @@ update it, let me know.
 
 1. Square Root of 2 is Irrational
 
-  ```isabelle
+  ```Isabelle
     theorem sqrt_prime_irrational:
       assumes "prime (p::nat)"
       shows "sqrt p ∉ ℚ"
@@ -24,7 +24,7 @@ update it, let me know.
 
 2. Fundamental Theorem of Algebra
 
-  ```isabelle
+  ```Isabelle
     lemma fundamental_theorem_of_algebra:
       assumes nc: "¬ constant (poly p)"
       shows "∃z::complex. poly p z = 0"
@@ -34,7 +34,7 @@ update it, let me know.
 
 3. Denumerability of the Rational Numbers
 
-  ```isabelle
+  ```Isabelle
 	theorem rat_denum: "∃f :: nat ⇒ rat. surj f"
   ```
 
@@ -42,7 +42,7 @@ update it, let me know.
 
 4. Pythagorean Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma pythagoras:
       fixes a b c :: "'a :: real_inner"
       assumes "orthogonal (b - a) (c - a)"
@@ -54,7 +54,7 @@ update it, let me know.
 
   Avigad *et al.* formalised the elementary Erdős–Selberg proof:
 
-  ```isabelle
+  ```Isabelle
     definition pi :: "nat ⇒ real"
       where "pi x = real (card {y::nat. y ≤ x ∧ prime y})"
     
@@ -67,7 +67,7 @@ update it, let me know.
 
   A formalisation by Eberl and Paulson of the shorter analytic proof is available in the AFP:
 
-  ```isabelle
+  ```Isabelle
     definition primes_pi :: "real ⇒ real" where
       "primes_pi x = real (card {p::nat. prime p ∧ p ≤ x})"
     
@@ -78,7 +78,7 @@ update it, let me know.
 
 6. Gödel's Incompleteness Theorem
 
-  ```isabelle
+  ```Isabelle
 	theorem Goedel_I:
 	  assumes "¬ {} ⊢ Fls"
 	  obtains δ where
@@ -97,7 +97,7 @@ update it, let me know.
 
 7. Law of Quadratic Reciprocity
 
-  ```isabelle
+  ```Isabelle
     theorem Quadratic_Reciprocity:
       assumes "prime p" "2 < p" "prime q" "2 < q" "p ≠ q"
       shows "Legendre p q * Legendre q p = (-1) ^ ((p - 1) div 2 * ((q - 1) div 2))"
@@ -107,7 +107,7 @@ update it, let me know.
 
 8. The Impossibility of Trisecting the Angle and Doubling the Cube
 
-  ```isabelle
+  ```Isabelle
 	theorem impossibility_of_doubling_the_cube:
 	  "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
 
@@ -119,7 +119,7 @@ update it, let me know.
 
 9. The Area of a Circle
 
-  ```isabelle
+  ```Isabelle
     theorem content_ball:
       fixes c :: "'a :: euclidean_space"
       assumes "r ≥ 0"
@@ -133,7 +133,7 @@ update it, let me know.
 
 10. Euler's Generalisation of Fermat's Little Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma euler_theorem:
       fixes a m :: nat
       assumes "coprime a m"
@@ -144,7 +144,7 @@ update it, let me know.
 
 11. The Infinitude of Primes
 
-  ```isabelle
+  ```Isabelle
     lemma primes_infinite: "¬finite {p::nat. prime p}"
   ```
 
@@ -156,7 +156,7 @@ update it, let me know.
 
 14. Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....
 
-  ```isabelle
+  ```Isabelle
     theorem inverse_squares_sums: "(λn. 1 / (n + 1)²) sums (pi² / 6)"
   ```
 
@@ -166,7 +166,7 @@ update it, let me know.
 
   A generalisation of this to all even powers is also available in the AFP:
 
-  ```isabelle
+  ```Isabelle
   corollary nat_even_power_sums_real:
     assumes n: "n > 0"
     shows   "(λk. 1 / real (k+1) ^ (2*n)) sums
@@ -178,7 +178,7 @@ update it, let me know.
 
 15. Fundamental Theorem of Integral Calculus
 
-  ```isabelle
+  ```Isabelle
     theorem fundamental_theorem_of_calculus:
       fixes f :: "real ⇒ 'a :: banach"
       assumes "a ≤ b" 
@@ -191,7 +191,7 @@ update it, let me know.
 
 17. DeMoivre's Theorem
 
-  ```isabelle
+  ```Isabelle
 	lemma DeMoivre: "(cis a) ^ n = cis (real n * a)"
 
 	lemma DeMoivre2: "(rcis r a) ^ n = rcis (r ^ n) (real n * a)"
@@ -201,7 +201,7 @@ update it, let me know.
 
 18. Liouville's Theorem and the Construction of Transcendental Numbers
 
-  ```isabelle
+  ```Isabelle
     corollary transcendental_liouville_constant:
       "¬algebraic (standard_liouville (λ_. 1) 10)"
   ```
@@ -210,7 +210,7 @@ update it, let me know.
 
 19. Lagrange's Four-Square Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem four_squares: "∃a b c d::nat. n = a² + b² + c² + d²"
   ```
 
@@ -218,7 +218,7 @@ update it, let me know.
 
 20. All Primes (1 mod 4) Equal the Sum of Two Squares
 
-  ```isabelle
+  ```Isabelle
     theorem two_squares:
       assumes "prime (p :: nat)"
       shows   "(∃a b. p = a² + b²) ⟷ [p ≠ 3] (mod 4)
@@ -228,7 +228,7 @@ update it, let me know.
 
 21. Green's theorem
 
-  ```isabelle
+  ```Isabelle
     lemma GreenThm_typeI_typeII_divisible_region:
       assumes only_vertical_division:
         "only_vertical_division one_chain_typeI two_chain_typeI"
@@ -242,13 +242,13 @@ update it, let me know.
                one_chain_line_integral F {i, j} one_chain_typeI"
             "integral s (λx. partial_vector_derivative (λx. (F x) ∙ j) i x - partial_vector_derivative (λx. (F x) ∙ i) j x) =
                one_chain_line_integral F {i, j} one_chain_typeII"    
-  ```isabelle
+  ```Isabelle
 
   <https://www.isa-afp.org/entries/Green.html>
 
 22. The Non-Denumerability of the Continuum
 
-  ```isabelle
+  ```Isabelle
     theorem real_non_denum: "∄f :: nat ⇒ real. surj f"
   ```
 
@@ -256,7 +256,7 @@ update it, let me know.
 
 23. Formula for Pythagorean Triples
 
-  ```isabelle
+  ```Isabelle
     theorem nat_euclid_pyth_triples:
       fixes a b c :: nat
       assumes "coprime a b" "odd a" "a² + b² = c²"
@@ -267,7 +267,7 @@ update it, let me know.
 
 25. Schröder–Bernstein Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Schroeder_Bernstein:
       fixes f :: "'a ⇒ 'b" and g :: "'b ⇒ 'a"
         and A :: "'a set" and B :: "'b set"
@@ -280,7 +280,7 @@ update it, let me know.
 
 26. Leibnitz's Series for Pi
 
-  ```isabelle
+  ```Isabelle
 	theorem pi_series:
 	  "pi / 4 = (∑k. (-1)^k * 1 / real (k*2+1))"
   ```
@@ -289,7 +289,7 @@ update it, let me know.
 
 27. Sum of the Angles of a Triangle
 
-  ```isabelle
+  ```Isabelle
     lemma angle_sum_triangle:
       assumes "a ≠ b ∨ b ≠ c ∨ a ≠ c"
       shows   "angle c a b + angle a b c + angle b c a = pi"
@@ -299,7 +299,7 @@ update it, let me know.
 
 30. The Ballot Problem
 
-  ```isabelle
+  ```Isabelle
     lemma "valid_countings a b = (if a ≤ b then (if b = 0 then 1 else 0) else (a - b) / (a + b) * all_countings a b)"
   ```
 
@@ -307,7 +307,7 @@ update it, let me know.
 
 31. Ramsey's Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma ramsey:
       fixes r s :: nat and Y :: "'a set" and f :: "'a set ⇒ nat"
       assumes "infinite Y"
@@ -322,7 +322,7 @@ update it, let me know.
 
 34. Divergence of the Harmonic Series
 
-  ```isabelle
+  ```Isabelle
 	theorem not_summable_harmonic:
 	  shows "¬summable (λn. 1 / real (n + 1))"
   ```
@@ -331,7 +331,7 @@ update it, let me know.
 
 35. Taylor's Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem taylor:
       fixes a :: real and n :: nat and f :: "real ⇒ real"
       assumes "n > 0" and "diff 0 = f"
@@ -345,7 +345,7 @@ update it, let me know.
 
 36. Brouwer Fixed Point Theorem
 
-  ```isabelle
+  ```Isabelle
 	lemma brouwer:
 	  fixes f :: "'a::euclidean_space ⇒ 'a"
 	  assumes "compact S" and "convex S" and "S ≠ {}"
@@ -358,7 +358,7 @@ update it, let me know.
 
 37. The Solution of a Cubic
 
-  ```isabelle
+  ```Isabelle
     lemma cubic:
       assumes a0: "a ≠ 0"
       shows "
@@ -385,7 +385,7 @@ update it, let me know.
 
 38. Arithmetic Mean / Geometric Mean
 
-  ```isabelle
+  ```Isabelle
         theorem CauchysMeanTheorem:
           fixes z :: "real list"
           assumes "pos z"
@@ -401,7 +401,7 @@ update it, let me know.
 
 39. Solutions to Pell's Equation
 
-  ```isabelle
+  ```Isabelle
     theorem pell_solutions:
       fixes D :: nat
       assumes "∄k. D = k²"
@@ -420,7 +420,7 @@ update it, let me know.
 
 40. Minkowski's Fundamental Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem minkowski:
       fixes B :: "(real ^ 'n) set"
       assumes "convex B" and symmetric: "uminus ` B ⊆ B"
@@ -433,7 +433,7 @@ update it, let me know.
 
 44. The Binomial Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem binomial_ring:
       fixes a b :: "'a :: comm_ring_1"
       shows "(a + b) ^ n = (∑k=0..n. of_nat (n choose k) * a ^ k * b ^ (n - k))"
@@ -443,7 +443,7 @@ update it, let me know.
 
 45. The Partition Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Euler_partition_theorem:
       "card {p. p partitions n ∧ (∀i. p i ≤ 1)} = card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"
   ```
@@ -452,7 +452,7 @@ update it, let me know.
 
 46. The Solution of the General Quartic Equation
 
-  ```isabelle
+  ```Isabelle
 	lemma quartic:
 	 "(y::real)^3 - b * y^2 + (a * c - 4 * d) * y - a^2 * d + 4 * b * d - c^2 = 0 ∧
 	  R^2 = a^2 / 4 - b + y ∧
@@ -472,7 +472,7 @@ update it, let me know.
 
 47. The Central Limit Theorem
 
-  ```isabelle
+  ```Isabelle
 	theorem (in prob_space) central_limit_theorem:
 	  fixes
 	    X :: "nat ⇒ 'a ⇒ real" and
@@ -497,7 +497,7 @@ update it, let me know.
 
 48. Dirichlet's Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Dirichlet:
       assumes "n > 1" and "coprime h n"
       shows   "infinite {p. prime p ∧ [p = h] (mod n)}"
@@ -507,7 +507,7 @@ update it, let me know.
 
 49. Cayley-Hamilton Theorem
 
-  ```isabelle
+  ```Isabelle
 	theorem Cayley_Hamilton:
 	  fixes A :: "'a :: comm_ring_1 ^ ('n :: finite) ^ 'n"
 	  shows "evalmat (charpoly A) A = 0"
@@ -517,7 +517,7 @@ update it, let me know.
 
 51. Wilson's Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma wilson_theorem:
       assumes "prime p"
       shows   "[fact (p - 1) = -1] (mod p)"
@@ -527,7 +527,7 @@ update it, let me know.
 
 52. The Number of Subsets of a Set
 
-  ```isabelle
+  ```Isabelle
 	lemma card_Pow:
 	  "finite A ⟹ card (Pow A) = 2 ^ card A"
   ```
@@ -536,7 +536,7 @@ update it, let me know.
 
 53. Pi is Transcendental
 
-  ```isabelle
+  ```Isabelle
 	theorem transcendental_pi: "¬algebraic pi"
   ```
 
@@ -544,7 +544,7 @@ update it, let me know.
 
 54. The Koenigsberg Bridges Problem
 
-  ```isabelle
+  ```Isabelle
 	lemma eulerian_split:
 	  assumes "nodes G1 ∩ nodes G2 = {}" "edges G1 ∩ edges G2={}"
 	    "valid_unMultigraph G1" "valid_unMultigraph G2"
@@ -558,7 +558,7 @@ update it, let me know.
 
 55. Product of Segments of Chords
 
-  ```isabelle
+  ```Isabelle
     theorem product_of_chord_segments:
       fixes S1 T1 S2 T2 X C :: "'a :: euclidean_space"
       assumes "between (S1, T1) X" "between (S2, T2) X"
@@ -572,7 +572,7 @@ update it, let me know.
 
 57. Heron's formula
 
-  ```isabelle
+  ```Isabelle
     theorem heron:
       fixes A B C :: "real ^ 2"
       defines "a ≡ dist B C" and "b ≡ dist A C" and "c ≡ dist A B"
@@ -584,7 +584,7 @@ update it, let me know.
 
 58. Formula for the Number of Combinations
 
-  ```isabelle
+  ```Isabelle
 	theorem n_subsets:
 	  "finite A ⟹ card {B. B ⊆ A ∧ card B = k} = (card A choose k)"
   ```
@@ -593,7 +593,7 @@ update it, let me know.
 
 60. Bezout's Theorem
 
-  ```isabelle
+  ```Isabelle
       lemma (in euclidean_ring_gcd) bezout_coefficients:
         "bezout_coefficients a b = (x, y) ⟹ x * a + y * b = gcd a b"
   ```
@@ -602,7 +602,7 @@ update it, let me know.
 
 63. Cantor's Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma Cantors_paradox: ∄f. f ` A = Pow A
   ```
 
@@ -610,7 +610,7 @@ update it, let me know.
 
 64. L'Hôpital's Rule
 
-  ```isabelle
+  ```Isabelle
     lemma lhopital:
       fixes f g f' g' :: "real ⇒ real"
       assumes "f ─x→ 0" and "g ─x→ 0"
@@ -625,7 +625,7 @@ update it, let me know.
 
 65. Isosceles Triangle Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma isosceles_triangle:
       assumes "dist a c = dist b c"
       shows   "angle b a c = angle a b c"
@@ -635,7 +635,7 @@ update it, let me know.
 
 66. Sum of a Geometric Series
 
-  ```isabelle
+  ```Isabelle
 	lemma geometric_sums:
 	  "norm c < 1 ⟹ (λn. c^n) sums (1 / (1 - c))"
 
@@ -647,7 +647,7 @@ update it, let me know.
 
 67. e is Transcendental
 
-  ```isabelle
+  ```Isabelle
     corollary e_transcendental_real: "¬ algebraic (exp 1 :: real)"
   ```
 
@@ -655,7 +655,7 @@ update it, let me know.
 
 68. Sum of an Arithmetic Series
 
-  ```isabelle
+  ```Isabelle
     lemma double_arith_series:
       fixes a d :: "'a :: comm_semiring_1"
       shows "2 * (∑i=0..n. a + of_nat i * d) = (of_nat n + 1) * (2 * a + of_nat n * d)"
@@ -666,7 +666,7 @@ update it, let me know.
   The greatest common divisor is defined in the `semiring_gcd` typeclass. Instances are provided for all the basic types, such as naturals, integers, and polynomials.
   The most important properties are:
 
-  ```isabelle
+  ```Isabelle
     lemma gcd_dvd1:     "gcd a b dvd a"
       and gcd_dvd2:     "gcd a b dvd b"
       and gcd_greatest: "c dvd a ⟹ c dvd b ⟹ c dvd gcd a b"
@@ -676,7 +676,7 @@ update it, let me know.
 
 70. Perfect Number Theorem
 
-  ```isabelle
+  ```Isabelle
 	theorem perfect_number_theorem:
 	  assumes even: "even m" and perfect: "perfect m"
 	  shows "∃n. m = 2^n*(2^(n+1) - 1) ∧ prime ((2::nat)^(n+1) - 1)"
@@ -686,7 +686,7 @@ update it, let me know.
 
 71. Order of a Subgroup
 
-  ```isabelle
+  ```Isabelle
     proposition (in group) lagrange_finite:
       assumes "finite (carrier G)" and "subgroup H G"
       shows "card (rcosets H) * card H = order G"
@@ -696,7 +696,7 @@ update it, let me know.
 
 72. Sylow's Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem sylow_thm:
       assumes "prime p" and "group G" and "order G = p ^ a * m" and "finite (carrier G)"
       obtains H where "subgroup H G" and "card H = p ^ a"
@@ -706,7 +706,7 @@ update it, let me know.
 
 73. Ascending or Descending Sequences
 
-  ```isabelle
+  ```Isabelle
     lemma Erdoes_Szekeres:
       fixes f :: "_ ⇒ 'a::linorder"
       shows "(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (op ≤) S) ∨
@@ -717,7 +717,7 @@ update it, let me know.
 
 74. The Principle of Mathematical Induction
 
-  ```isabelle
+  ```Isabelle
     theorem nat_induct:
       fixes n :: nat
       assumes "P 0" and "⋀n. P n ⟹ P (n + 1)"
@@ -729,7 +729,7 @@ update it, let me know.
 75. The Mean Value Theorem
 
 
-  ```isabelle
+  ```Isabelle
     theorem MVT:
       fixes a b :: real and f :: "real ⇒ real"
       assumes "a < b"
@@ -749,7 +749,7 @@ update it, let me know.
 
 77. Sum of kth powers
 
-  ```isabelle
+  ```Isabelle
     lemma sum_of_powers:
       fixes m n :: nat
       shows "(∑k=0..n. k ^ m) = (bernpoly (m + 1) (n + 1) - bernpoly (m + 1) 0) / (m + 1)"
@@ -759,7 +759,7 @@ update it, let me know.
 
 78. The Cauchy-Schwarz Inequality
 
-  ```isabelle
+  ```Isabelle
 	theorem CauchySchwarzReal:
 	  fixes x::vector
 	  assumes "vlen x = vlen y"
@@ -771,7 +771,7 @@ update it, let me know.
 
   An alternative version is available in the standard library:
 
-  ```isabelle
+  ```Isabelle
     lemma Cauchy_Schwarz_ineq2:
       "¦x ∙ y¦ ≤ norm x * norm y"
   ```
@@ -781,7 +781,7 @@ update it, let me know.
 
 79. The Intermediate Value Theorem
 
-  ```isabelle
+  ```Isabelle
     lemma IVT':
       fixes f :: "real ⇒ real"
       assumes "a ≤ b" and "y ∈ {f a..f b}" and  "continuous_on {a..b} f"
@@ -794,7 +794,7 @@ update it, let me know.
 
   The function `prime_factorization` is defined for any factorial semiring. It returns the factorization as a multiset that fulfils the following properties:
 
-  ```isabelle
+  ```Isabelle
     lemma in_prime_factors_iff:
       "p ∈ set_mset (prime_factors x) ⟷ x ≠ 0 ∧ p dvd x ∧ prime p"
     
@@ -814,7 +814,7 @@ update it, let me know.
 
 81. Divergence of the Prime Reciprocal Series
 
-  ```isabelle
+  ```Isabelle
     corollary prime_harmonic_series_diverges:
       "¬convergent (λn. ∑p←primes_upto n. 1 / p)"
   ```
@@ -823,7 +823,7 @@ update it, let me know.
 
   The more precise asymptotic estimate given by Mertens' Second Theorem is also available:
 
-  ```isabelle
+  ```Isabelle
     theorem mertens_second_theorem:
       "(λx. (∑p | real p ≤ x ∧ prime p. 1 / p) - ln (ln x) - meissel_mertens) ∈ O(λx. 1 / ln x)"
   ```
@@ -832,7 +832,7 @@ update it, let me know.
 
 83. The Friendship Theorem
 
-  ```isabelle
+  ```Isabelle
 	theorem (in valid_unSimpGraph) friendship_thm:
 	  assumes "⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n" and "finite V"
 	  shows "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
@@ -842,7 +842,7 @@ update it, let me know.
 
 85. Divisibility by Three Rule
 
-  ```isabelle
+  ```Isabelle
     theorem three_divides_nat: "3 dvd n ⟷ 3 dvd sumdig n"
   ```
 
@@ -866,7 +866,7 @@ update it, let me know.
 
 88. Derangements Formula
 
-  ```isabelle
+  ```Isabelle
     theorem derangements_formula:
       assumes "n ≠ 0" and "finite S" and "card S = n"
       shows "card (derangements S) = round (fact n / exp 1)"
@@ -876,7 +876,7 @@ update it, let me know.
 
 89. The Factor and Remainder Theorems
 
-  ```isabelle
+  ```Isabelle
 	lemma long_div_theorem:
 	  assumes "g ∈ carrier P" and "f ∈ carrier P" and "g ≠ 𝟬⇘P⇙"
 	  shows "∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
@@ -894,7 +894,7 @@ update it, let me know.
 
   The following gives the full asymptotic expansion of the complex log-Gamma function, and, derived from that, the first term of the asymptotic expansion of the complex Gamma function:
 
-  ```isabelle
+  ```Isabelle
     theorem ln_Gamma_complex_asymptotics_explicit:
       fixes m :: nat and α :: real
       assumes "m > 0" and "α ∈ {0<..<pi}"
@@ -912,7 +912,7 @@ update it, let me know.
   ```
 
   There are also these slightly simpler versions for the real Gamma function and the factorial:
-  ```isabelle
+  ```Isabelle
     theorem Gamma_asymp_equiv:
       "Gamma ∼ (λx. sqrt (2*pi/x) * (x / exp 1) powr x :: real)"
 
@@ -927,7 +927,7 @@ update it, let me know.
 
 91. The Triangle Inequality
 
-  ```isabelle
+  ```Isabelle
 	class ordered_ab_group_add_abs = ordered_ab_group_add + abs +
 	  assumes abs_ge_zero: "¦a¦ ≥ 0"
 	    and abs_ge_self: "a ≤ ¦a¦"
@@ -938,7 +938,7 @@ update it, let me know.
 
   The triangle inequality is a type class property in Isabelle. Real numbers, integers, etc are instances of this type class:
 
-  ```isabelle
+  ```Isabelle
 	lemma abs_triangle_ineq_real: "¦(a::real) + b¦ ≤ ¦a¦ + ¦b¦"
 	lemma abs_triangle_ineq_int: "¦(a::int) + b¦ ≤ ¦a¦ + ¦b¦"
   ```
@@ -947,7 +947,7 @@ update it, let me know.
 
 93. The Birthday Problem
 
-  ```isabelle
+  ```Isabelle
 	lemma birthday_paradox:
 	  assumes "card S = 23" "card T = 365"
 	  shows "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
@@ -957,7 +957,7 @@ update it, let me know.
 
 94. The Law of Cosines
 
-  ```isabelle
+  ```Isabelle
     lemma cosine_law_triangle:
       "dist b c ^ 2 = dist a b ^ 2 + dist a c ^ 2 - 2 * dist a b * dist a c * cos (angle b a c)"
   ```
@@ -966,7 +966,7 @@ update it, let me know.
 
 95. Ptolemy's Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem ptolemy:
       fixes A B C D center :: "real ^ 2"
       assumes "dist center A = radius" and "dist center B = radius"
@@ -982,7 +982,7 @@ update it, let me know.
 
 96. Principle of Inclusion/Exclusion
 
-  ```isabelle
+  ```Isabelle
     lemma card_UNION:
       assumes "finite A" and "∀k ∈ A. finite k"
       shows "card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"
@@ -992,7 +992,7 @@ update it, let me know.
 
 97. Cramer's Rule
 
-  ```isabelle
+  ```Isabelle
 	lemma cramer:
 	  fixes A ::"real^'n^'n"
 	  assumes d0: "det A ≠ 0"
@@ -1003,7 +1003,7 @@ update it, let me know.
 
 98. Bertrand's Postulate
 
-  ```isabelle
+  ```Isabelle
     theorem bertrand: "n > 1 ⟹ ∃p∈{n<..<2*n}. prime p"
   ```
 
@@ -1011,7 +1011,7 @@ update it, let me know.
 
 99. Buffon Needle Problem
 
-  ```isabelle
+  ```Isabelle
     definition needle :: "real ⇒ real ⇒ real ⇒ real set" where
       "needle l x φ = closed_segment (x - l / 2 * sin φ) (x + l / 2 * sin φ)"
   
@@ -1042,7 +1042,7 @@ update it, let me know.
 
 100. Descartes Rule of Signs
 
-  ```isabelle
+  ```Isabelle
     theorem descartes_sign_rule:
       fixes p :: "real poly"
       assumes "p ≠ 0"
@@ -1054,7 +1054,7 @@ update it, let me know.
 
 105. Cauchy's Integral Theorem
 
-  ```isabelle
+  ```Isabelle
     proposition Cauchy_theorem_homotopic_paths:
       assumes hom: "homotopic_paths s g h"
           and "open s" and f: "f holomorphic_on s"
@@ -1073,7 +1073,7 @@ update it, let me know.
   
 106. Cauchy's Residue Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Residue_theorem:
       fixes s pts :: "complex set" and f::"complex ⇒ complex"
         and g :: "real ⇒ complex"
@@ -1090,7 +1090,7 @@ update it, let me know.
   
 113. Gödel's Second Incompleteness Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Goedel_II: "¬ ({} ⊢ Neg (PfP «Fls»))"
   ```
   
@@ -1101,14 +1101,14 @@ update it, let me know.
 
   Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
 
-  ```isabelle
+  ```Isabelle
     definition (in topological_space) compact :: "'a set ⇒ bool" where
       compact_eq_Heine_Borel:  (* This name is used for backwards compatibility *)
         "compact S ⟷ (∀C. (∀c∈C. open c) ∧ S ⊆ ⋃C ⟶ (∃D⊆C. finite D ∧ S ⊆ ⋃D))"
   ```
   
   For types of the `heine_borel` type class, this is proven to be equivalent to the set beind bounded and closed:
-  ```isabelle
+  ```Isabelle
     lemma compact_eq_bounded_closed:
       fixes s :: "'a :: heine_borel set"
       shows "compact s ⟷ bounded s ∧ closed s"
@@ -1123,7 +1123,7 @@ update it, let me know.
   
 120. Hilbert Nullstellensatz
 
-  ```isabelle
+  ```Isabelle
     theorem strong_Nullstellensatz:
       assumes "finite X" and "F ⊆ P[X]"
       shows "ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"
@@ -1134,7 +1134,7 @@ update it, let me know.
 
 122. Invariance of Dimension
 
-  ```isabelle
+  ```Isabelle
     corollary invariance_of_dimension:
       fixes f :: "'a::euclidean_space ⇒ 'b::euclidean_space"
       assumes contf: "continuous_on S f" and "open S"
@@ -1147,7 +1147,7 @@ update it, let me know.
 
 124. Jordan Curve Theorem
 
-  ```isabelle
+  ```Isabelle
     corollary Jordan_inside_outside:
       fixes c :: "real ⇒ complex"
       assumes "simple_path c" "pathfinish c = pathstart c"
@@ -1170,7 +1170,7 @@ update it, let me know.
 
 130. Riemann Mapping Theorem
 
-  ```isabelle
+  ```Isabelle
     theorem Riemann_mapping_theorem:
       "open S ∧ simply_connected S ⟷
        S = {} ∨ S = UNIV ∨
@@ -1184,7 +1184,7 @@ update it, let me know.
   
 131. Sorting takes Θ(N log N) steps
 
-  ```isabelle
+  ```Isabelle
     datatype 'a sorter = Return "'a list" | Query 'a 'a "bool ⇒ 'a sorter"
     
     primrec count_queries :: "('a × 'a) set ⇒ 'a sorter ⇒ nat" where
@@ -1214,7 +1214,7 @@ update it, let me know.
   
 133. Stone–Weierstraß Theorem
   
-  ```isabelle
+  ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
       assumes f: "continuous_on S f"
       shows "∃F∈UNIV → R. uniform_limit S F f sequentially 
@@ -1230,7 +1230,7 @@ update it, let me know.
   
 134. Thales' Theorem
   
-  ```isabelle
+  ```Isabelle
     theorem thales:
       fixes A B C :: "'a :: real_inner"
       assumes "dist B (midpoint A C) = dist A C / 2"
@@ -1241,7 +1241,7 @@ update it, let me know.
 
 136. ζ(-1) = -1 / 12
   
-  ```isabelle
+  ```Isabelle
     theorem zeta_even_nat: 
       "zeta (2 * of_nat n) = 
          of_real ((-1) ^ (n+1) * bernoulli (2*n) * (2*pi)^(2*n) / (2 * fact (2*n)))"
