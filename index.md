@@ -11,43 +11,35 @@ update it, let me know.
 
 
 1. Square Root of 2 is Irrational
-  
-  ```Isabelle
+    ```Isabelle
     theorem sqrt_prime_irrational:
       assumes "prime (p::nat)"
       shows "sqrt p ∉ ℚ"
-
-    corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
-  ```
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Sqrt.html>
+     corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Sqrt.html>
   
 2. Fundamental Theorem of Algebra
-  
-  ```Isabelle
+    ```Isabelle
     lemma fundamental_theorem_of_algebra:
       assumes nc: "¬ constant (poly p)"
       shows "∃z::complex. poly p z = 0"
-  ```
-  
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Fundamental_Theorem_Algebra.html>
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Fundamental_Theorem_Algebra.html>
   
 3. Denumerability of the Rational Numbers
-  
-  ```Isabelle
-	theorem rat_denum: "∃f :: nat ⇒ rat. surj f"
-  ```
-  
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Countable.html>
+    ```Isabelle
+    theorem rat_denum: "∃f :: nat ⇒ rat. surj f"
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Countable.html>
   
 4. Pythagorean Theorem
-
-  ```Isabelle
+    ```Isabelle
     lemma pythagoras:
       fixes a b c :: "'a :: real_inner"
       assumes "orthogonal (b - a) (c - a)"
       shows   "dist b c ^ 2 = dist a b ^ 2 + dist a c ^ 2"
-  ```
-
+    ```
 
 5. Prime Number Theorem
 
