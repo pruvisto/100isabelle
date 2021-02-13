@@ -1,3 +1,9 @@
 theme: jekyll-theme-slate
 title: The Top 100 Theorems in Isabelle
 description: 
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
