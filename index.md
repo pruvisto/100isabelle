@@ -1132,12 +1132,19 @@ update it, let me know.
     
     
 1. Atiyah-Singer Index Theorem
+
     not formalised in Isabelle yet
     
 1. Baker's Theorem on Linear Forms in Logarithms
+
+    not formalised in Isabelle yet
+   
+1. Black-Scholes Formula
+
     not formalised in Isabelle yet
     
 1. Borsuk-Ulam Theorem
+
     not formalised in Isabelle yet
     
 1. Cauchy's Integral Theorem
@@ -1177,9 +1184,10 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
   
 1. Chen's theorem
+
     not formalised in Isabelle yet
     
-1. every vector space is free
+1. Every vector space is free
 
     ```isabelle
     lemma (in vector_space) basis_exists:
@@ -1189,13 +1197,20 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Vector_Spaces.html>
     
 1. Classification of Finite Simple Groups
+
     not formalised in Isabelle yet
     
 1. Classification of semisimple Lie groups (Killing, Cartan, Dynkin)
+
     not formalised in Isabelle yet
     
 1. Sophie Germain's theorem
+
     not formalised in Isabelle yet
+ 
+1. Gödel's Completeness Theorem
+
+    <https://www.isa-afp.org/entries/Completeness.html>
  
 1. Gödel's Second Incompleteness Theorem
 
@@ -1206,12 +1221,15 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Incompleteness.html>
 
 1. Green-Tao Theorem
+
     not formalised in Isabelle yet
     
 1. Feit-Thompson Theorem
+
     not formalised in Isabelle yet
     
 1. Fundamental Theorem of Galois Theory
+
     not formalised in Isabelle yet
   
 1. Heine–Borel Theorem
@@ -1249,6 +1267,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Projective_Geometry.html>
     
 1. Hilbert Basis Theorem
+
     not formalised in Isabelle yet
   
 1. Hilbert Nullstellensatz
@@ -1263,6 +1282,7 @@ update it, let me know.
 
 
 1. Hilbert-Waring theorem
+
     not formalised in Isabelle yet
     
 1. Invariance of Dimension
@@ -1279,6 +1299,7 @@ update it, let me know.
 
 
 1. IP=PSPACE
+
     not formalised in Isabelle yet
 
 1. Jordan Curve Theorem
@@ -1304,18 +1325,23 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
 
 1. Kepler Conjecture
+
     not formalised in Isabelle yet
 
 1. Lie's work relating Algebras and Groups
+
     not formalised in Isabelle yet
     
 1. Nash's Theorem
+
     not formalised in Isabelle yet
     
 1. Perelman-Hamilton-Thurston theorem classifying compact 3-manifolds
+
     not formalised in Isabelle yet
     
 1. Poincaré Conjecture
+
     not formalised in Isabelle yet
 
 1. Riemann Mapping Theorem
@@ -1363,6 +1389,7 @@ update it, let me know.
   
   
 1. Stokes' Theorem
+
     not formalised in Isabelle yet
 
   
