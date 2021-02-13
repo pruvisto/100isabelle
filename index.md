@@ -141,15 +141,13 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Gamma_Function.html>
 
-  <br />
-
-  A generalisation of this to all even powers is also available in the AFP:
+    A generalisation of this to all even powers is also available in the AFP:
 
     ```Isabelle
-  corollary nat_even_power_sums_real:
-    assumes n: "n > 0"
-    shows   "(λk. 1 / real (k+1) ^ (2*n)) sums
-              ((-1) ^ (n+1) * bernoulli (2*n) * (2*pi) ^ (2*n) / (2 * fact (2*n)))"
+    corollary nat_even_power_sums_real:
+      assumes n: "n > 0"
+      shows   "(λk. 1 / real (k+1) ^ (2*n)) sums
+                ((-1) ^ (n+1) * bernoulli (2*n) * (2*pi) ^ (2*n) / (2 * fact (2*n)))"
     ```
   
     <https://www.isa-afp.org/browser_info/current/AFP/Bernoulli/Bernoulli_Zeta.html>
@@ -642,8 +640,8 @@ update it, let me know.
 
 69. Greatest Common Divisor Algorithm
 
-  The greatest common divisor is defined in the `semiring_gcd` typeclass. Instances are provided for all the basic types, such as naturals, integers, and polynomials.
-  The most important properties are:
+    The greatest common divisor is defined in the `semiring_gcd` typeclass. Instances are provided for all the basic types, such as naturals, integers, and polynomials.
+    The most important properties are:
 
     ```Isabelle
     lemma gcd_dvd1:     "gcd a b dvd a"
@@ -746,9 +744,7 @@ update it, let me know.
     ```
     <https://isa-afp.org/entries/Cauchy.shtml>
   
-  <br>
-
-  An alternative version is available in the standard library:
+    An alternative version is available in the standard library:
 
     ```Isabelle
     lemma Cauchy_Schwarz_ineq2:
@@ -771,7 +767,7 @@ update it, let me know.
 
 80. Fundamental Theorem of Arithmetic
 
-  The function `prime_factorization` is defined for any factorial semiring. It returns the factorization as a multiset that fulfils the following properties:
+    The function `prime_factorization` is defined for any factorial semiring. It returns the factorization as a multiset that fulfils the following properties:
 
     ```Isabelle
     lemma in_prime_factors_iff:
@@ -786,7 +782,7 @@ update it, let me know.
       shows   "prime_factorization x = prime_factorization y ⟷ normalize x = normalize y"
     ```
 
-  The `normalize` function is required because associated elements (like -3 and 3) have the same factorization; for natural numbers, it is the identity.
+    The `normalize` function is required because associated elements (like -3 and 3) have the same factorization; for natural numbers, it is the identity.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Factorial_Ring.html>
 
@@ -800,7 +796,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Prime_Harmonic_Series.shtml>
 
-  The more precise asymptotic estimate given by Mertens' Second Theorem is also available:
+    The more precise asymptotic estimate given by Mertens' Second Theorem is also available:
 
     ```Isabelle
     theorem mertens_second_theorem:
@@ -831,7 +827,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Integration.shtml>
 
-  A more recent and more extensive library of the Lebesgue Measure and Lebesgue integration (and also the Bochner integral and the Henstock–Kurzweil integral and the connections between all of these) is also in the standard distribution:
+    A more recent and more extensive library of the Lebesgue Measure and Lebesgue integration (and also the Bochner integral and the Henstock–Kurzweil integral and the connections between all of these) is also in the standard distribution:
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Lebesgue_Measure.html>
 
@@ -865,13 +861,13 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html>
 
-  Independently, `HOL-Computational_Algebra` provides notions of division and remainder in Euclidean rings (such as naturals, integers, polynomials):
+    Independently, `HOL-Computational_Algebra` provides notions of division and remainder in Euclidean rings (such as naturals, integers, polynomials):
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
 
 90. Stirling's Formula
 
-  The following gives the full asymptotic expansion of the complex log-Gamma function, and, derived from that, the first term of the asymptotic expansion of the complex Gamma function:
+    The following gives the full asymptotic expansion of the complex log-Gamma function, and, derived from that, the first term of the asymptotic expansion of the complex Gamma function:
 
     ```Isabelle
     theorem ln_Gamma_complex_asymptotics_explicit:
@@ -890,7 +886,8 @@ update it, let me know.
       shows   "Gamma ∼[F] (λs. sqrt (2 * pi) * (s / exp 1) powr s / s powr (1 / 2))"
     ```
 
-  There are also these slightly simpler versions for the real Gamma function and the factorial:
+    There are also these slightly simpler versions for the real Gamma function and the factorial:
+    
     ```Isabelle
     theorem Gamma_asymp_equiv:
       "Gamma ∼ (λx. sqrt (2*pi/x) * (x / exp 1) powr x :: real)"
@@ -915,7 +912,7 @@ update it, let me know.
 	    and abs_triangle_ineq: "¦a + b¦ ≤ ¦a¦ + ¦b¦"
     ```
 
-  The triangle inequality is a type class property in Isabelle. Real numbers, integers, etc are instances of this type class:
+    The triangle inequality is a type class property in Isabelle. Real numbers, integers, etc are instances of this type class:
 
     ```Isabelle
 	lemma abs_triangle_ineq_real: "¦(a::real) + b¦ ≤ ¦a¦ + ¦b¦"
@@ -1078,7 +1075,7 @@ update it, let me know.
   
 117. Heine–Borel Theorem
 
-  Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
+    Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
 
     ```Isabelle
     definition (in topological_space) compact :: "'a set ⇒ bool" where
@@ -1086,14 +1083,14 @@ update it, let me know.
         "compact S ⟷ (∀C. (∀c∈C. open c) ∧ S ⊆ ⋃C ⟶ (∃D⊆C. finite D ∧ S ⊆ ⋃D))"
     ```
   
-  For types of the `heine_borel` type class, this is proven to be equivalent to the set beind bounded and closed:
+    For types of the `heine_borel` type class, this is proven to be equivalent to the set beind bounded and closed:
     ```Isabelle
     lemma compact_eq_bounded_closed:
       fixes s :: "'a :: heine_borel set"
       shows "compact s ⟷ bounded s ∧ closed s"
     ```
   
-  It is shown that all Euclidean spaces are Heine–Borel, i.e. that `euclidean_space` is a subclass of `heine_borel`.
+    It is shown that all Euclidean spaces are Heine–Borel, i.e. that `euclidean_space` is a subclass of `heine_borel`.
 
     <https://isabelle.in.tum.de/dist/library/HOL/Topological_Spaces.html>  
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Elementary_Metric_Spaces.html>
