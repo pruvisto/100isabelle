@@ -35,82 +35,71 @@ update it, let me know.
   
 4. Pythagorean Theorem
     ```Isabelle
-    lemma pythagoras:
-      fixes a b c :: "'a :: real_inner"
-      assumes "orthogonal (b - a) (c - a)"
-      shows   "dist b c ^ 2 = dist a b ^ 2 + dist a c ^ 2"
+    lemma Pythagoras:
+      fixes A B C :: "'a :: real_inner"
+      assumes "orthogonal (A - C) (B - C)"
+      shows "(dist B C) ^ 2 + (dist C A) ^ 2 = (dist A B) ^ 2"
     ```
+    
+    <https://www.isa-afp.org/entries/Triangle.html>
 
 5. Prime Number Theorem
-
-  Avigad *et al.* formalised the elementary Erdős–Selberg proof:
-
-  ```Isabelle
+    Avigad *et al.* formalised the elementary Erdős–Selberg proof:
+    ```Isabelle
     definition pi :: "nat ⇒ real"
       where "pi x = real (card {y::nat. y ≤ x ∧ prime y})"
     
     lemma PrimeNumberTheorem: "(λx. pi x * ln (real x) / real x) ⇢ 1"
-  ```
+    ```
+    <http://www.andrew.cmu.edu/user/avigad/isabelle/NumberTheory/PrimeNumberTheorem.html>
 
-  <http://www.andrew.cmu.edu/user/avigad/isabelle/NumberTheory/PrimeNumberTheorem.html>
+    A formalisation by Eberl and Paulson of the shorter analytic proof is available in the AFP:
 
-  <br/>
-
-  A formalisation by Eberl and Paulson of the shorter analytic proof is available in the AFP:
-
-  ```Isabelle
+    ```Isabelle
     definition primes_pi :: "real ⇒ real" where
       "primes_pi x = real (card {p::nat. prime p ∧ p ≤ x})"
     
     corollary prime_number_theorem: "primes_pi ∼[at_top] (λx. x / ln x)"
-  ```
-
-  <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
+    ```
+    <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
 6. Gödel's Incompleteness Theorem
 
-  ```Isabelle
-	theorem Goedel_I:
-	  assumes "¬ {} ⊢ Fls"
-	  obtains δ where
-		  "{} ⊢ δ IFF Neg (PfP ⌈δ⌉)"
-		  "¬ {} ⊢ δ"
-		  "¬ {} ⊢ Neg δ"
-	      "eval_fm e δ"
-		  "ground_fm δ"
+    ```Isabelle
+    theorem Goedel_I:
+      assumes "¬ {} ⊢ Fls"
+        obtains δ where "{} ⊢ δ IFF Neg (PfP ⌈δ⌉)"
+                        "¬ {} ⊢ δ"
+                        "¬ {} ⊢ Neg δ"
+                        "eval_fm e δ"
+                        "ground_fm δ"
 
-	theorem Goedel_II:
-	  assumes "¬ {} ⊢ Fls"
-	    shows "¬ {} ⊢ Neg (PfP ⌈Fls⌉)"
-  ```
-
+    theorem Goedel_II:
+      assumes "¬ {} ⊢ Fls"
+      shows "¬ {} ⊢ Neg (PfP ⌈Fls⌉)"
+    ```
   <https://isa-afp.org/entries/Incompleteness.shtml>
 
 7. Law of Quadratic Reciprocity
 
-  ```Isabelle
+    ```Isabelle
     theorem Quadratic_Reciprocity:
       assumes "prime p" "2 < p" "prime q" "2 < q" "p ≠ q"
       shows "Legendre p q * Legendre q p = (-1) ^ ((p - 1) div 2 * ((q - 1) div 2))"
-  ```
-
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Quadratic_Reciprocity.html>
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Quadratic_Reciprocity.html>
 
 8. The Impossibility of Trisecting the Angle and Doubling the Cube
-
-  ```Isabelle
-	theorem impossibility_of_doubling_the_cube:
-	  "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
-
-	theorem impossibility_of_trisecting_angle_pi_over_3:
-	  "Point (cos (pi / 9)) 0 ∉ constructible"
-  ```
-
-  <https://isa-afp.org/entries/Impossible_Geometry.shtml>
+    ```Isabelle
+    theorem impossibility_of_doubling_the_cube:
+      "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
+    theorem impossibility_of_trisecting_angle_pi_over_3:
+      "Point (cos (pi / 9)) 0 ∉ constructible"
+    ```
+    <https://isa-afp.org/entries/Impossible_Geometry.shtml>
 
 9. The Area of a Circle
-
-  ```Isabelle
+    ```Isabelle
     theorem content_ball:
       fixes c :: "'a :: euclidean_space"
       assumes "r ≥ 0"
@@ -118,9 +107,8 @@ update it, let me know.
     
     corollary content_circle:
       "r ≥ 0 ⟹ content (ball c r :: (real ^ 2) set) = r ^ 2 * pi"
-  ```
-
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Ball_Volume.html>
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Ball_Volume.html>
 
 10. Euler's Generalisation of Fermat's Little Theorem
 
