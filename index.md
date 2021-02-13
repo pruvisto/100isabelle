@@ -1013,7 +1013,6 @@ update it, let me know.
 
     end
     ```
-
     <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
 
 100. Descartes Rule of Signs
@@ -1024,11 +1023,10 @@ update it, let me know.
       assumes "p ≠ 0"
       shows "∃d. even d ∧ coeff_sign_changes p = count_pos_roots p + d"
     ```
-
     <https://isa-afp.org/entries/Descartes_Sign_Rule.shtml>
 
 
-105. Cauchy's Integral Theorem
+1. Cauchy's Integral Theorem
 
     ```Isabelle
     proposition Cauchy_theorem_homotopic_paths:
@@ -1047,7 +1045,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Cauchy_Integral_Theorem.html>
   
   
-106. Cauchy's Residue Theorem
+1. Cauchy's Residue Theorem
 
     ```Isabelle
     theorem Residue_theorem:
@@ -1064,7 +1062,7 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
   
-113. Gödel's Second Incompleteness Theorem
+1. Gödel's Second Incompleteness Theorem
 
     ```Isabelle
     theorem Goedel_II: "¬ ({} ⊢ Neg (PfP «Fls»))"
@@ -1073,7 +1071,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Incompleteness.html>
   
   
-117. Heine–Borel Theorem
+1. Heine–Borel Theorem
 
     Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
 
@@ -1097,7 +1095,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Topology_Euclidean_Space.html>
   
   
-120. Hilbert Nullstellensatz
+1. Hilbert Nullstellensatz
 
     ```Isabelle
     theorem strong_Nullstellensatz:
@@ -1108,7 +1106,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Nullstellensatz.html>
 
 
-122. Invariance of Dimension
+1. Invariance of Dimension
 
     ```Isabelle
     corollary invariance_of_dimension:
@@ -1121,7 +1119,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Further_Topology.html>
 
 
-124. Jordan Curve Theorem
+1. Jordan Curve Theorem
 
     ```Isabelle
     corollary Jordan_inside_outside:
@@ -1144,7 +1142,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
 
 
-130. Riemann Mapping Theorem
+1. Riemann Mapping Theorem
 
     ```Isabelle
     theorem Riemann_mapping_theorem:
@@ -1158,7 +1156,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Riemann_Mapping.html>
   
   
-131. Sorting takes Θ(N log N) steps
+1. Sorting takes Θ(N log N) steps
 
     ```Isabelle
     datatype 'a sorter = Return "'a list" | Query 'a 'a "bool ⇒ 'a sorter"
@@ -1188,7 +1186,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Comparison_Sort_Lower_Bound.html>
   
   
-133. Stone–Weierstraß Theorem
+1. Stone–Weierstraß Theorem
   
     ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
@@ -1204,7 +1202,7 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Weierstrass_Theorems.html>
   
-134. Thales' Theorem
+1. Thales' Theorem
   
     ```Isabelle
     theorem thales:
@@ -1215,7 +1213,7 @@ update it, let me know.
   
     <https://www.isa-afp.org/entries/Triangle.html>
 
-136. ζ(-1) = -1 / 12
+1. ζ(-1) = -1 / 12
   
     ```Isabelle
     theorem zeta_even_nat: 
