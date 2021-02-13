@@ -78,7 +78,7 @@ update it, let me know.
       assumes "¬ {} ⊢ Fls"
       shows "¬ {} ⊢ Neg (PfP ⌈Fls⌉)"
     ```
-  <https://isa-afp.org/entries/Incompleteness.shtml>
+    <https://isa-afp.org/entries/Incompleteness.shtml>
 
 7. Law of Quadratic Reciprocity
 
@@ -112,102 +112,102 @@ update it, let me know.
 
 10. Euler's Generalisation of Fermat's Little Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma euler_theorem:
       fixes a m :: nat
       assumes "coprime a m"
       shows "[a ^ totient m = 1] (mod m)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
 
 11. The Infinitude of Primes
 
-  ```Isabelle
+    ```Isabelle
     lemma primes_infinite: "¬finite {p::nat. prime p}"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Primes.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Primes.html>
 
 12. The Independence of the Parallel Postulate
 
-  <https://isa-afp.org/entries/Tarskis_Geometry.shtml>
+    <https://isa-afp.org/entries/Tarskis_Geometry.shtml>
 
 14. Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....
 
-  ```Isabelle
+    ```Isabelle
     theorem inverse_squares_sums: "(λn. 1 / (n + 1)²) sums (pi² / 6)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Gamma_Function.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Gamma_Function.html>
 
   <br />
 
   A generalisation of this to all even powers is also available in the AFP:
 
-  ```Isabelle
+    ```Isabelle
   corollary nat_even_power_sums_real:
     assumes n: "n > 0"
     shows   "(λk. 1 / real (k+1) ^ (2*n)) sums
               ((-1) ^ (n+1) * bernoulli (2*n) * (2*pi) ^ (2*n) / (2 * fact (2*n)))"
-  ```
+    ```
   
-  <https://www.isa-afp.org/browser_info/current/AFP/Bernoulli/Bernoulli_Zeta.html>
+    <https://www.isa-afp.org/browser_info/current/AFP/Bernoulli/Bernoulli_Zeta.html>
 
 
 15. Fundamental Theorem of Integral Calculus
 
-  ```Isabelle
+    ```Isabelle
     theorem fundamental_theorem_of_calculus:
       fixes f :: "real ⇒ 'a :: banach"
       assumes "a ≤ b" 
         and   "⋀x. x ∈ {a..b} ⟹ (f has_vector_derivative f' x) (at x within {a..b})"
       shows   "(f' has_integral (f b - f a)) {a..b}"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.html>
   
 
 17. DeMoivre's Theorem
 
-  ```Isabelle
+    ```Isabelle
 	lemma DeMoivre: "(cis a) ^ n = cis (real n * a)"
 
 	lemma DeMoivre2: "(rcis r a) ^ n = rcis (r ^ n) (real n * a)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Complex.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Complex.html>
 
 18. Liouville's Theorem and the Construction of Transcendental Numbers
 
-  ```Isabelle
+    ```Isabelle
     corollary transcendental_liouville_constant:
       "¬algebraic (standard_liouville (λ_. 1) 10)"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Liouville_Numbers.shtml>
+    <https://isa-afp.org/entries/Liouville_Numbers.shtml>
 
 19. Lagrange's Four-Square Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem four_squares: "∃a b c d::nat. n = a² + b² + c² + d²"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/SumSquares.html>
+    <https://www.isa-afp.org/entries/SumSquares.html>
 
 20. All Primes (1 mod 4) Equal the Sum of Two Squares
 
-  ```Isabelle
+    ```Isabelle
     theorem two_squares:
       assumes "prime (p :: nat)"
       shows   "(∃a b. p = a² + b²) ⟷ [p ≠ 3] (mod 4)
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/SumSquares.html>
+    <https://www.isa-afp.org/entries/SumSquares.html>
 
 21. Green's theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma GreenThm_typeI_typeII_divisible_region:
       assumes only_vertical_division:
         "only_vertical_division one_chain_typeI two_chain_typeI"
@@ -221,72 +221,72 @@ update it, let me know.
                one_chain_line_integral F {i, j} one_chain_typeI"
             "integral s (λx. partial_vector_derivative (λx. (F x) ∙ j) i x - partial_vector_derivative (λx. (F x) ∙ i) j x) =
                one_chain_line_integral F {i, j} one_chain_typeII"    
-  ```Isabelle
+    ```Isabelle
 
-  <https://www.isa-afp.org/entries/Green.html>
+    <https://www.isa-afp.org/entries/Green.html>
 
 22. The Non-Denumerability of the Continuum
 
-  ```Isabelle
+    ```Isabelle
     theorem real_non_denum: "∄f :: nat ⇒ real. surj f"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Continuum_Not_Denumerable.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Continuum_Not_Denumerable.html>
 
 23. Formula for Pythagorean Triples
 
-  ```Isabelle
+    ```Isabelle
     theorem nat_euclid_pyth_triples:
       fixes a b c :: nat
       assumes "coprime a b" "odd a" "a² + b² = c²"
       shows   "∃p q. a = p² - q² ∧ b = 2 * p * q ∧ c = p² + q² ∧ coprime p q"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Fermat3_4.html>
+    <https://www.isa-afp.org/entries/Fermat3_4.html>
 
 25. Schröder–Bernstein Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Schroeder_Bernstein:
       fixes f :: "'a ⇒ 'b" and g :: "'b ⇒ 'a"
         and A :: "'a set" and B :: "'b set"
       assumes "inj_on f A" and "f ` A ⊆ B"
         and   "inj_on g B" and "g ` B ⊆ A"
       shows   "∃h. bij_betw h A B"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Inductive.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Inductive.html>
 
 26. Leibnitz's Series for Pi
 
-  ```Isabelle
+    ```Isabelle
 	theorem pi_series:
 	  "pi / 4 = (∑k. (-1)^k * 1 / real (k*2+1))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Transcendental.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Transcendental.html>
 
 27. Sum of the Angles of a Triangle
 
-  ```Isabelle
+    ```Isabelle
     lemma angle_sum_triangle:
       assumes "a ≠ b ∨ b ≠ c ∨ a ≠ c"
       shows   "angle c a b + angle a b c + angle b c a = pi"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Triangle.shtml>
+    <https://isa-afp.org/entries/Triangle.shtml>
 
 30. The Ballot Problem
 
-  ```Isabelle
+    ```Isabelle
     lemma "valid_countings a b = (if a ≤ b then (if b = 0 then 1 else 0) else (a - b) / (a + b) * all_countings a b)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html>
 
 31. Ramsey's Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma ramsey:
       fixes r s :: nat and Y :: "'a set" and f :: "'a set ⇒ nat"
       assumes "infinite Y"
@@ -295,22 +295,22 @@ update it, let me know.
         "Y' ⊆ Y" and "infinite Y'" and "t < s" and
         "∀X. X ⊆ Y' ∧ finite X ∧ card X = r ⟶ f X = t"
       using ramsey assms by metis
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Ramsey-Infinite.shtml>
+    <https://isa-afp.org/entries/Ramsey-Infinite.shtml>
 
 34. Divergence of the Harmonic Series
 
-  ```Isabelle
+    ```Isabelle
 	theorem not_summable_harmonic:
 	  shows "¬summable (λn. 1 / real (n + 1))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Summation_Tests.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Summation_Tests.html>
 
 35. Taylor's Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem taylor:
       fixes a :: real and n :: nat and f :: "real ⇒ real"
       assumes "n > 0" and "diff 0 = f"
@@ -318,26 +318,26 @@ update it, let me know.
         and   "c ∈ {a..b}" and "x ∈ {a..b} - {c}"
       shows "∃t. t ∈ open_segment x c ∧
                  f x = (∑m<n. (diff m c / fact m) * (x - c) ^ m) + (diff n t / fact n) * (x - c) ^ n"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/MacLaurin.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/MacLaurin.html>
 
 36. Brouwer Fixed Point Theorem
 
-  ```Isabelle
+    ```Isabelle
 	lemma brouwer:
 	  fixes f :: "'a::euclidean_space ⇒ 'a"
 	  assumes "compact S" and "convex S" and "S ≠ {}"
 	    and "continuous_on S f"
 	    and "f ` S ⊆ S"
 	  obtains x where "x ∈ S" and "f x = x"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Brouwer_Fixpoint.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Brouwer_Fixpoint.html>
 
 37. The Solution of a Cubic
 
-  ```Isabelle
+    ```Isabelle
     lemma cubic:
       assumes a0: "a ≠ 0"
       shows "
@@ -358,13 +358,13 @@ update it, let me know.
                 x = s1 - p / s1 - b / (3 * a) ∨
                 x = s2 - p / s2 - b / (3 * a) ∨
                 x = s3 - p / s3 - b / (3 * a))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
 
 38. Arithmetic Mean / Geometric Mean
 
-  ```Isabelle
+    ```Isabelle
         theorem CauchysMeanTheorem:
           fixes z :: "real list"
           assumes "pos z"
@@ -374,13 +374,13 @@ update it, let me know.
 	  fixes z :: "real list"
 	  assumes "pos z"
 	  shows "gmean z = mean z ⟷ het z = 0"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Cauchy.shtml>
+    <https://isa-afp.org/entries/Cauchy.shtml>
 
 39. Solutions to Pell's Equation
 
-  ```Isabelle
+    ```Isabelle
     theorem pell_solutions:
       fixes D :: nat
       assumes "∄k. D = k²"
@@ -393,45 +393,45 @@ update it, let me know.
       fixes D :: nat
       assumes "∄k. D = k²"
       shows   "infinite {(x :: int, y :: int). x² - D * y² = 1}"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Pell.html>
+    <https://www.isa-afp.org/entries/Pell.html>
 
 40. Minkowski's Fundamental Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem minkowski:
       fixes B :: "(real ^ 'n) set"
       assumes "convex B" and symmetric: "uminus ` B ⊆ B"
       assumes meas_B [measurable]: "B ∈ sets lebesgue"
       assumes measure_B: "emeasure lebesgue B > 2 ^ CARD('n)"
       obtains x where "x ∈ B" and "x ≠ 0" and "⋀i. x $ i ∈ ℤ"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Minkowskis_Theorem.shtml>
+    <https://www.isa-afp.org/entries/Minkowskis_Theorem.shtml>
 
 44. The Binomial Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem binomial_ring:
       fixes a b :: "'a :: comm_ring_1"
       shows "(a + b) ^ n = (∑k=0..n. of_nat (n choose k) * a ^ k * b ^ (n - k))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
 45. The Partition Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Euler_partition_theorem:
       "card {p. p partitions n ∧ (∀i. p i ≤ 1)} = card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Euler_Partition.shtml>
+    <https://isa-afp.org/entries/Euler_Partition.shtml>
 
 46. The Solution of the General Quartic Equation
 
-  ```Isabelle
+    ```Isabelle
 	lemma quartic:
 	 "(y::real)^3 - b * y^2 + (a * c - 4 * d) * y - a^2 * d + 4 * b * d - c^2 = 0 ∧
 	  R^2 = a^2 / 4 - b + y ∧
@@ -445,13 +445,13 @@ update it, let me know.
 	      x = -a / 4 + R / 2 - D / 2 ∨
 	      x = -a / 4 - R / 2 + E / 2 ∨
 	      x = -a / 4 - R / 2 - E / 2"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
 
 47. The Central Limit Theorem
 
-  ```Isabelle
+    ```Isabelle
 	theorem (in prob_space) central_limit_theorem:
 	  fixes
 	    X :: "nat ⇒ 'a ⇒ real" and
@@ -470,60 +470,60 @@ update it, let me know.
 	  shows
 	    "weak_conv_m (λn. distr M borel (λx. S n x / sqrt (n * σ⇧2)))
 	        (density lborel std_normal_density)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Probability/Central_Limit_Theorem.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Probability/Central_Limit_Theorem.html>
 
 48. Dirichlet's Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Dirichlet:
       assumes "n > 1" and "coprime h n"
       shows   "infinite {p. prime p ∧ [p = h] (mod n)}"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Dirichlet_L.html>
+    <https://isa-afp.org/entries/Dirichlet_L.html>
 
 49. Cayley-Hamilton Theorem
 
-  ```Isabelle
+    ```Isabelle
 	theorem Cayley_Hamilton:
 	  fixes A :: "'a :: comm_ring_1 ^ ('n :: finite) ^ 'n"
 	  shows "evalmat (charpoly A) A = 0"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Cayley_Hamilton.shtml>
+    <https://isa-afp.org/entries/Cayley_Hamilton.shtml>
 
 51. Wilson's Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma wilson_theorem:
       assumes "prime p"
       shows   "[fact (p - 1) = -1] (mod p)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
 
 52. The Number of Subsets of a Set
 
-  ```Isabelle
+    ```Isabelle
 	lemma card_Pow:
 	  "finite A ⟹ card (Pow A) = 2 ^ card A"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Power.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Power.html>
 
 53. Pi is Transcendental
 
-  ```Isabelle
+    ```Isabelle
 	theorem transcendental_pi: "¬algebraic pi"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Pi_Transcendental.html>
+    <https://www.isa-afp.org/entries/Pi_Transcendental.html>
 
 54. The Koenigsberg Bridges Problem
 
-  ```Isabelle
+    ```Isabelle
 	lemma eulerian_split:
 	  assumes "nodes G1 ∩ nodes G2 = {}" "edges G1 ∩ edges G2={}"
 	    "valid_unMultigraph G1" "valid_unMultigraph G2"
@@ -531,65 +531,65 @@ update it, let me know.
 	    "valid_unMultigraph.is_Eulerian_trail  G2 v2 ps2 v2'"
 	  shows "valid_unMultigraph.is_Eulerian_trail ⦇nodes=nodes G1 ∪ nodes G2,
 	          edges=edges G1 ∪ edges G2 ∪ {(v1',w,v2),(v2,w,v1')}⦈ v1 (ps1@(v1',w,v2)#ps2) v2'"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
+    <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
 
 55. Product of Segments of Chords
 
-  ```Isabelle
+    ```Isabelle
     theorem product_of_chord_segments:
       fixes S1 T1 S2 T2 X C :: "'a :: euclidean_space"
       assumes "between (S1, T1) X" "between (S2, T2) X"
       assumes "dist C S1 = r" "dist C T1 = r"
       assumes "dist C S2 = r" "dist C T2 = r"
       shows "dist S1 X * dist X T1 = dist S2 X * dist X T2"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Chord_Segments.shtml>
+    <https://www.isa-afp.org/entries/Chord_Segments.shtml>
 
 
 57. Heron's formula
 
-  ```Isabelle
+    ```Isabelle
     theorem heron:
       fixes A B C :: "real ^ 2"
       defines "a ≡ dist B C" and "b ≡ dist A C" and "c ≡ dist A B"
       defines "s ≡ (a + b + c) / 2"
       shows   "content (convex hull {A, B, C}) = sqrt (s * (s - a) * (s - b) * (s - c))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Simplex_Content.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Simplex_Content.html>
 
 58. Formula for the Number of Combinations
 
-  ```Isabelle
+    ```Isabelle
 	theorem n_subsets:
 	  "finite A ⟹ card {B. B ⊆ A ∧ card B = k} = (card A choose k)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
 60. Bezout's Theorem
 
-  ```Isabelle
+    ```Isabelle
       lemma (in euclidean_ring_gcd) bezout_coefficients:
         "bezout_coefficients a b = (x, y) ⟹ x * a + y * b = gcd a b"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
 
 63. Cantor's Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma Cantors_paradox: ∄f. f ` A = Pow A
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html>
 
 64. L'Hôpital's Rule
 
-  ```Isabelle
+    ```Isabelle
     lemma lhopital:
       fixes f g f' g' :: "real ⇒ real"
       assumes "f ─x→ 0" and "g ─x→ 0"
@@ -600,115 +600,115 @@ update it, let me know.
       assumes "filterlim (λx. f' x / g' x) F (at x)"
       shows   "filterlim (λx. f x / g x) F (at x)"
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
 65. Isosceles Triangle Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma isosceles_triangle:
       assumes "dist a c = dist b c"
       shows   "angle b a c = angle a b c"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Triangle.shtml>
+    <https://isa-afp.org/entries/Triangle.shtml>
 
 66. Sum of a Geometric Series
 
-  ```Isabelle
+    ```Isabelle
 	lemma geometric_sums:
 	  "norm c < 1 ⟹ (λn. c^n) sums (1 / (1 - c))"
 
 	lemma suminf_geometric:
 	  "norm c < 1 ⟹ (∑n. c ^ n) = 1 / (1 - c)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Series.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Series.html>
 
 67. e is Transcendental
 
-  ```Isabelle
+    ```Isabelle
     corollary e_transcendental_real: "¬ algebraic (exp 1 :: real)"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/E_Transcendental.shtml>
+    <https://www.isa-afp.org/entries/E_Transcendental.shtml>
 
 68. Sum of an Arithmetic Series
 
-  ```Isabelle
+    ```Isabelle
     lemma double_arith_series:
       fixes a d :: "'a :: comm_semiring_1"
       shows "2 * (∑i=0..n. a + of_nat i * d) = (of_nat n + 1) * (2 * a + of_nat n * d)"
-  ```
+    ```
 
 69. Greatest Common Divisor Algorithm
 
   The greatest common divisor is defined in the `semiring_gcd` typeclass. Instances are provided for all the basic types, such as naturals, integers, and polynomials.
   The most important properties are:
 
-  ```Isabelle
+    ```Isabelle
     lemma gcd_dvd1:     "gcd a b dvd a"
       and gcd_dvd2:     "gcd a b dvd b"
       and gcd_greatest: "c dvd a ⟹ c dvd b ⟹ c dvd gcd a b"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html>
 
 70. Perfect Number Theorem
 
-  ```Isabelle
+    ```Isabelle
 	theorem perfect_number_theorem:
 	  assumes even: "even m" and perfect: "perfect m"
 	  shows "∃n. m = 2^n*(2^(n+1) - 1) ∧ prime ((2::nat)^(n+1) - 1)"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Perfect-Number-Thm.shtml>
+    <https://isa-afp.org/entries/Perfect-Number-Thm.shtml>
 
 71. Order of a Subgroup
 
-  ```Isabelle
+    ```Isabelle
     proposition (in group) lagrange_finite:
       assumes "finite (carrier G)" and "subgroup H G"
       shows "card (rcosets H) * card H = order G"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Coset.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Coset.html>
 
 72. Sylow's Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem sylow_thm:
       assumes "prime p" and "group G" and "order G = p ^ a * m" and "finite (carrier G)"
       obtains H where "subgroup H G" and "card H = p ^ a"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Sylow.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Sylow.html>
 
 73. Ascending or Descending Sequences
 
-  ```Isabelle
+    ```Isabelle
     lemma Erdoes_Szekeres:
       fixes f :: "_ ⇒ 'a::linorder"
       shows "(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (op ≤) S) ∨
              (∃S. S ⊆ {0..m * n} ∧ card S = n + 1 ∧ mono_on f (op ≥) S)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html>
 
 74. The Principle of Mathematical Induction
 
-  ```Isabelle
+    ```Isabelle
     theorem nat_induct:
       fixes n :: nat
       assumes "P 0" and "⋀n. P n ⟹ P (n + 1)"
       shows   "P n"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Nat.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Nat.html>
 
 75. The Mean Value Theorem
 
 
-  ```Isabelle
+    ```Isabelle
     theorem MVT:
       fixes a b :: real and f :: "real ⇒ real"
       assumes "a < b"
@@ -722,58 +722,58 @@ update it, let me know.
       assumes "a < b"
           and "∀x∈{a..b}. (f has_real_derivative f' x) (at x)"
       shows "∃z. z ∈ {a<..<b} ∧ f b - f a = (b - a) * f' z"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
 77. Sum of kth powers
 
-  ```Isabelle
+    ```Isabelle
     lemma sum_of_powers:
       fixes m n :: nat
       shows "(∑k=0..n. k ^ m) = (bernpoly (m + 1) (n + 1) - bernpoly (m + 1) 0) / (m + 1)"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Bernoulli.html>
+    <https://www.isa-afp.org/entries/Bernoulli.html>
 
 78. The Cauchy-Schwarz Inequality
 
-  ```Isabelle
+    ```Isabelle
 	theorem CauchySchwarzReal:
 	  fixes x::vector
 	  assumes "vlen x = vlen y"
 	  shows "¦x ⋅ y¦ ≤ ∥x∥ * ∥y∥"
-  ```
-  <https://isa-afp.org/entries/Cauchy.shtml>
+    ```
+    <https://isa-afp.org/entries/Cauchy.shtml>
   
   <br>
 
   An alternative version is available in the standard library:
 
-  ```Isabelle
+    ```Isabelle
     lemma Cauchy_Schwarz_ineq2:
       "¦x ∙ y¦ ≤ norm x * norm y"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html>
  
 
 79. The Intermediate Value Theorem
 
-  ```Isabelle
+    ```Isabelle
     lemma IVT':
       fixes f :: "real ⇒ real"
       assumes "a ≤ b" and "y ∈ {f a..f b}" and  "continuous_on {a..b} f"
       obtains x where "x ∈ {a..b}" and "f x = y"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Topological_Spaces.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Topological_Spaces.html>
 
 80. Fundamental Theorem of Arithmetic
 
   The function `prime_factorization` is defined for any factorial semiring. It returns the factorization as a multiset that fulfils the following properties:
 
-  ```Isabelle
+    ```Isabelle
     lemma in_prime_factors_iff:
       "p ∈ set_mset (prime_factors x) ⟷ x ≠ 0 ∧ p dvd x ∧ prime p"
     
@@ -784,96 +784,96 @@ update it, let me know.
     lemma prime_factorization_unique:
       assumes "x ≠ 0" "y ≠ 0"
       shows   "prime_factorization x = prime_factorization y ⟷ normalize x = normalize y"
-  ```
+    ```
 
   The `normalize` function is required because associated elements (like -3 and 3) have the same factorization; for natural numbers, it is the identity.
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Factorial_Ring.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Factorial_Ring.html>
 
 
 81. Divergence of the Prime Reciprocal Series
 
-  ```Isabelle
+    ```Isabelle
     corollary prime_harmonic_series_diverges:
       "¬convergent (λn. ∑p←primes_upto n. 1 / p)"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Prime_Harmonic_Series.shtml>
+    <https://isa-afp.org/entries/Prime_Harmonic_Series.shtml>
 
   The more precise asymptotic estimate given by Mertens' Second Theorem is also available:
 
-  ```Isabelle
+    ```Isabelle
     theorem mertens_second_theorem:
       "(λx. (∑p | real p ≤ x ∧ prime p. 1 / p) - ln (ln x) - meissel_mertens) ∈ O(λx. 1 / ln x)"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
+    <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
 83. The Friendship Theorem
 
-  ```Isabelle
+    ```Isabelle
 	theorem (in valid_unSimpGraph) friendship_thm:
 	  assumes "⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n" and "finite V"
 	  shows "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
+    <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
 
 85. Divisibility by Three Rule
 
-  ```Isabelle
+    ```Isabelle
     theorem three_divides_nat: "3 dvd n ⟷ 3 dvd sumdig n"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/ThreeDivides.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/ThreeDivides.html>
 
 86. Lebesgue Measure and Integration
 
-  <https://isa-afp.org/entries/Integration.shtml>
+    <https://isa-afp.org/entries/Integration.shtml>
 
   A more recent and more extensive library of the Lebesgue Measure and Lebesgue integration (and also the Bochner integral and the Henstock–Kurzweil integral and the connections between all of these) is also in the standard distribution:
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Lebesgue_Measure.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Lebesgue_Measure.html>
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Nonnegative_Lebesgue_Integration.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Nonnegative_Lebesgue_Integration.html>
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Bochner_Integration.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Bochner_Integration.html>
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.thy.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.thy.html>
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Equivalence_Lebesgue_Henstock_Integration.thy.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Equivalence_Lebesgue_Henstock_Integration.thy.html>
 
 88. Derangements Formula
 
-  ```Isabelle
+    ```Isabelle
     theorem derangements_formula:
       assumes "n ≠ 0" and "finite S" and "card S = n"
       shows "card (derangements S) = round (fact n / exp 1)"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Derangements.shtml>
+    <https://isa-afp.org/entries/Derangements.shtml>
 
 89. The Factor and Remainder Theorems
 
-  ```Isabelle
+    ```Isabelle
 	lemma long_div_theorem:
 	  assumes "g ∈ carrier P" and "f ∈ carrier P" and "g ≠ 𝟬⇘P⇙"
 	  shows "∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
 		    (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
 			(r = 𝟬⇘P⇙ | deg R r < deg R g)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html>
 
   Independently, `HOL-Computational_Algebra` provides notions of division and remainder in Euclidean rings (such as naturals, integers, polynomials):
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
 
 90. Stirling's Formula
 
   The following gives the full asymptotic expansion of the complex log-Gamma function, and, derived from that, the first term of the asymptotic expansion of the complex Gamma function:
 
-  ```Isabelle
+    ```Isabelle
     theorem ln_Gamma_complex_asymptotics_explicit:
       fixes m :: nat and α :: real
       assumes "m > 0" and "α ∈ {0<..<pi}"
@@ -888,64 +888,64 @@ update it, let me know.
       assumes α: "α ∈ {0<..<pi}"
       defines "F ≡ inf at_infinity (principal (complex_cone' α))"
       shows   "Gamma ∼[F] (λs. sqrt (2 * pi) * (s / exp 1) powr s / s powr (1 / 2))"
-  ```
+    ```
 
   There are also these slightly simpler versions for the real Gamma function and the factorial:
-  ```Isabelle
+    ```Isabelle
     theorem Gamma_asymp_equiv:
       "Gamma ∼ (λx. sqrt (2*pi/x) * (x / exp 1) powr x :: real)"
 
     theorem fact_asymp_equiv:
       "fact ∼ (λn. sqrt (2*pi*n) * (n / exp 1) ^ n :: real)"
-  ```
+    ```
   
-  <https://www.isa-afp.org/entries/Stirling_Formula.shtml>
+    <https://www.isa-afp.org/entries/Stirling_Formula.shtml>
   
-  <https://www.isa-afp.org/entries/Gamma_Asymptotics.shtml>
+    <https://www.isa-afp.org/entries/Gamma_Asymptotics.shtml>
 
 
 91. The Triangle Inequality
 
-  ```Isabelle
+    ```Isabelle
 	class ordered_ab_group_add_abs = ordered_ab_group_add + abs +
 	  assumes abs_ge_zero: "¦a¦ ≥ 0"
 	    and abs_ge_self: "a ≤ ¦a¦"
 	    and abs_leI: "a ≤ b ⟹ - a ≤ b ⟹ ¦a¦ ≤ b"
 	    and abs_minus_cancel: "¦-a¦ = ¦a¦"
 	    and abs_triangle_ineq: "¦a + b¦ ≤ ¦a¦ + ¦b¦"
-  ```
+    ```
 
   The triangle inequality is a type class property in Isabelle. Real numbers, integers, etc are instances of this type class:
 
-  ```Isabelle
+    ```Isabelle
 	lemma abs_triangle_ineq_real: "¦(a::real) + b¦ ≤ ¦a¦ + ¦b¦"
 	lemma abs_triangle_ineq_int: "¦(a::int) + b¦ ≤ ¦a¦ + ¦b¦"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Groups.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Groups.html>
 
 93. The Birthday Problem
 
-  ```Isabelle
+    ```Isabelle
 	lemma birthday_paradox:
 	  assumes "card S = 23" "card T = 365"
 	  shows "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html>
 
 94. The Law of Cosines
 
-  ```Isabelle
+    ```Isabelle
     lemma cosine_law_triangle:
       "dist b c ^ 2 = dist a b ^ 2 + dist a c ^ 2 - 2 * dist a b * dist a c * cos (angle b a c)"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Triangle.shtml>
+    <https://isa-afp.org/entries/Triangle.shtml>
 
 95. Ptolemy's Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem ptolemy:
       fixes A B C D center :: "real ^ 2"
       assumes "dist center A = radius" and "dist center B = radius"
@@ -955,42 +955,42 @@ update it, let me know.
         "radiant_of (B - center) ≤ radiant_of (C - center)"
         "radiant_of (C - center) ≤ radiant_of (D - center)"
       shows "dist A C * dist B D = dist A B * dist C D + dist A D * dist B C"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Ptolemys_Theorem.shtml>
+    <https://www.isa-afp.org/entries/Ptolemys_Theorem.shtml>
 
 96. Principle of Inclusion/Exclusion
 
-  ```Isabelle
+    ```Isabelle
     lemma card_UNION:
       assumes "finite A" and "∀k ∈ A. finite k"
       shows "card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
 97. Cramer's Rule
 
-  ```Isabelle
+    ```Isabelle
 	lemma cramer:
 	  fixes A ::"real^'n^'n"
 	  assumes d0: "det A ≠ 0"
 	  shows "A *v x = b ⟷ x = (χ k. det(χ i j. if j=k then b$i else A$i$j) / det A)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Determinants.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Determinants.html>
 
 98. Bertrand's Postulate
 
-  ```Isabelle
+    ```Isabelle
     theorem bertrand: "n > 1 ⟹ ∃p∈{n<..<2*n}. prime p"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Bertrands_Postulate.shtml>
+    <https://www.isa-afp.org/entries/Bertrands_Postulate.shtml>
 
 99. Buffon Needle Problem
 
-  ```Isabelle
+    ```Isabelle
     definition needle :: "real ⇒ real ⇒ real ⇒ real set" where
       "needle l x φ = closed_segment (x - l / 2 * sin φ) (x + l / 2 * sin φ)"
   
@@ -1015,25 +1015,25 @@ update it, let me know.
       "l ≥ d ⟹ prob {True} = 2 / pi * ((l / d) - sqrt ((l / d)² - 1) + arccos (d / l))"
 
     end
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
+    <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
 
 100. Descartes Rule of Signs
 
-  ```Isabelle
+    ```Isabelle
     theorem descartes_sign_rule:
       fixes p :: "real poly"
       assumes "p ≠ 0"
       shows "∃d. even d ∧ coeff_sign_changes p = count_pos_roots p + d"
-  ```
+    ```
 
-  <https://isa-afp.org/entries/Descartes_Sign_Rule.shtml>
+    <https://isa-afp.org/entries/Descartes_Sign_Rule.shtml>
 
 
 105. Cauchy's Integral Theorem
 
-  ```Isabelle
+    ```Isabelle
     proposition Cauchy_theorem_homotopic_paths:
       assumes hom: "homotopic_paths s g h"
           and "open s" and f: "f holomorphic_on s"
@@ -1045,14 +1045,14 @@ update it, let me know.
           and "open s" and f: "f holomorphic_on s"
           and vpg: "valid_path g" and vph: "valid_path h"
       shows "contour_integral g f = contour_integral h f"
-  ```
+    ```
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Cauchy_Integral_Theorem.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Cauchy_Integral_Theorem.html>
   
   
 106. Cauchy's Residue Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Residue_theorem:
       fixes s pts :: "complex set" and f::"complex ⇒ complex"
         and g :: "real ⇒ complex"
@@ -1063,107 +1063,107 @@ update it, let me know.
               "path_image g ⊆ s-pts" and
               "∀z. (z ∉ s) ⟶ winding_number g z = 0"
       shows "contour_integral g f = 2 * pi * 𝗂 * (∑p∈pts. winding_number g p * residue f p)"
-  ```
+    ```
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
   
 113. Gödel's Second Incompleteness Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Goedel_II: "¬ ({} ⊢ Neg (PfP «Fls»))"
-  ```
+    ```
   
-  <https://www.isa-afp.org/entries/Incompleteness.html>
+    <https://www.isa-afp.org/entries/Incompleteness.html>
   
   
 117. Heine–Borel Theorem
 
   Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
 
-  ```Isabelle
+    ```Isabelle
     definition (in topological_space) compact :: "'a set ⇒ bool" where
       compact_eq_Heine_Borel:  (* This name is used for backwards compatibility *)
         "compact S ⟷ (∀C. (∀c∈C. open c) ∧ S ⊆ ⋃C ⟶ (∃D⊆C. finite D ∧ S ⊆ ⋃D))"
-  ```
+    ```
   
   For types of the `heine_borel` type class, this is proven to be equivalent to the set beind bounded and closed:
-  ```Isabelle
+    ```Isabelle
     lemma compact_eq_bounded_closed:
       fixes s :: "'a :: heine_borel set"
       shows "compact s ⟷ bounded s ∧ closed s"
-  ```
+    ```
   
   It is shown that all Euclidean spaces are Heine–Borel, i.e. that `euclidean_space` is a subclass of `heine_borel`.
 
-  <https://isabelle.in.tum.de/dist/library/HOL/Topological_Spaces.html>  
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Elementary_Metric_Spaces.html>
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Topology_Euclidean_Space.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/Topological_Spaces.html>  
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Elementary_Metric_Spaces.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Topology_Euclidean_Space.html>
   
   
 120. Hilbert Nullstellensatz
 
-  ```Isabelle
+    ```Isabelle
     theorem strong_Nullstellensatz:
       assumes "finite X" and "F ⊆ P[X]"
       shows "ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"
-  ```
+    ```
 
-  <https://www.isa-afp.org/entries/Nullstellensatz.html>
+    <https://www.isa-afp.org/entries/Nullstellensatz.html>
 
 
 122. Invariance of Dimension
 
-  ```Isabelle
+    ```Isabelle
     corollary invariance_of_dimension:
       fixes f :: "'a::euclidean_space ⇒ 'b::euclidean_space"
       assumes contf: "continuous_on S f" and "open S"
           and injf: "inj_on f S" and "S ≠ {}"
         shows "DIM('a) ≤ DIM('b)"
-  ```
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Further_Topology.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Further_Topology.html>
 
 
 124. Jordan Curve Theorem
 
-  ```Isabelle
+    ```Isabelle
     corollary Jordan_inside_outside:
       fixes c :: "real ⇒ complex"
       assumes "simple_path c" "pathfinish c = pathstart c"
         shows "inside (path_image c) ≠ {} ∧
-              open (inside (path_image c)) ∧
-              connected (inside (path_image c)) ∧
-              outside (path_image c) ≠ {} ∧
-              open (outside (path_image c)) ∧
-              connected (outside (path_image c)) ∧
-              bounded (inside (path_image c)) ∧
-              ¬ bounded (outside (path_image c)) ∧
-              inside (path_image c) ∩ outside(path_image c) = {} ∧
-              inside (path_image c) ∪ outside(path_image c) = - path_image c ∧
-              frontier (inside (path_image c)) = path_image c ∧
-              frontier (outside (path_image c)) = path_image c"
-  ```
+               open (inside (path_image c)) ∧
+               connected (inside (path_image c)) ∧
+               outside (path_image c) ≠ {} ∧
+               open (outside (path_image c)) ∧
+               connected (outside (path_image c)) ∧
+               bounded (inside (path_image c)) ∧
+               ¬ bounded (outside (path_image c)) ∧
+               inside (path_image c) ∩ outside(path_image c) = {} ∧
+               inside (path_image c) ∪ outside(path_image c) = - path_image c ∧
+               frontier (inside (path_image c)) = path_image c ∧
+               frontier (outside (path_image c)) = path_image c"
+    ```
 
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
 
 
 130. Riemann Mapping Theorem
 
-  ```Isabelle
+    ```Isabelle
     theorem Riemann_mapping_theorem:
       "open S ∧ simply_connected S ⟷
        S = {} ∨ S = UNIV ∨
        (∃f g. f holomorphic_on S ∧ g holomorphic_on ball 0 1 ∧
              (∀z ∈ S. f z ∈ ball 0 1 ∧ g(f z) = z) ∧
              (∀z ∈ ball 0 1. g z ∈ S ∧ f(g z) = z))"
-  ```
+    ```
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Riemann_Mapping.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Riemann_Mapping.html>
   
   
 131. Sorting takes Θ(N log N) steps
 
-  ```Isabelle
+    ```Isabelle
     datatype 'a sorter = Return "'a list" | Query 'a 'a "bool ⇒ 'a sorter"
     
     primrec count_queries :: "('a × 'a) set ⇒ 'a sorter ⇒ nat" where
@@ -1186,14 +1186,14 @@ update it, let me know.
                              is_sorting R [0..<n] (eval_sorter R (sorter n))"
       defines "Rs ≡ λn. {R. linorder_on {..<n} R}"
       shows   "(λn. count_wc_queries (Rs n) (sorter n)) ∈ Ω(λn. n * ln n)"
-  ```
+    ```
   
-  <https://www.isa-afp.org/entries/Comparison_Sort_Lower_Bound.html>
+    <https://www.isa-afp.org/entries/Comparison_Sort_Lower_Bound.html>
   
   
 133. Stone–Weierstraß Theorem
   
-  ```Isabelle
+    ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
       assumes f: "continuous_on S f"
       shows "∃F∈UNIV → R. uniform_limit S F f sequentially 
@@ -1203,32 +1203,32 @@ update it, let me know.
       assumes S: "compact S"
         and f: "continuous_on S f"
       obtains g where "uniform_limit S g f sequentially" and "⋀n. polynomial_function (g n)"
-  ```
+    ```
   
-  <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Weierstrass_Theorems.html>
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Weierstrass_Theorems.html>
   
 134. Thales' Theorem
   
-  ```Isabelle
+    ```Isabelle
     theorem thales:
       fixes A B C :: "'a :: real_inner"
       assumes "dist B (midpoint A C) = dist A C / 2"
       shows   "orthogonal (A - B) (C - B)"
-  ```  
+    ```  
   
-  <https://www.isa-afp.org/entries/Triangle.html>
+    <https://www.isa-afp.org/entries/Triangle.html>
 
 136. ζ(-1) = -1 / 12
   
-  ```Isabelle
+    ```Isabelle
     theorem zeta_even_nat: 
       "zeta (2 * of_nat n) = 
          of_real ((-1) ^ (n+1) * bernoulli (2*n) * (2*pi)^(2*n) / (2 * fact (2*n)))"
   
     corollary zeta_neg1: "zeta (-1) = - 1 / 12"
-  ```
+    ```
   
-  <https://www.isa-afp.org/entries/Zeta_Function.html>
+    <https://www.isa-afp.org/entries/Zeta_Function.html>
   
   
 
