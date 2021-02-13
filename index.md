@@ -1,5 +1,3 @@
-% The Top 100 Theorems in Isabelle
-
 The following are the theorems from [this list](http://www.cs.ru.nl/~freek/100/)
 proved so far in the [Isabelle](https://isabelle.in.tum.de) proof assistant.
 
@@ -10,8 +8,6 @@ If the theorem is not part of the Isabelle distribution, the entry will usually 
 link to the repository that does. The list does not automatically track the most recent
 version of each theorem. If you find one that that is out of date and would like me to
 update it, let me know.
-
-</div>
 
 
 1. Square Root of 2 is Irrational
