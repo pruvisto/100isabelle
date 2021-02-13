@@ -15,7 +15,8 @@ update it, let me know.
     theorem sqrt_prime_irrational:
       assumes "prime (p::nat)"
       shows "sqrt p ∉ ℚ"
-     corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
+      
+    corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Sqrt.html>
   
@@ -93,6 +94,7 @@ update it, let me know.
     ```Isabelle
     theorem impossibility_of_doubling_the_cube:
       "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
+    
     theorem impossibility_of_trisecting_angle_pi_over_3:
       "Point (cos (pi / 9)) 0 ∉ constructible"
     ```
@@ -227,7 +229,7 @@ update it, let me know.
                one_chain_line_integral F {i, j} one_chain_typeI"
             "integral s (λx. partial_vector_derivative (λx. (F x) ∙ j) i x - partial_vector_derivative (λx. (F x) ∙ i) j x) =
                one_chain_line_integral F {i, j} one_chain_typeII"    
-    ```Isabelle
+    ```
 
     <https://www.isa-afp.org/entries/Green.html>
 
