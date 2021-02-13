@@ -133,6 +133,10 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Tarskis_Geometry.shtml>
 
+13. Polyhedron Formula
+
+    not formalised in Isabelle yet
+
 14. Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....
 
     ```Isabelle
@@ -165,6 +169,10 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.html>
   
+
+16. Insolvability of General Higher Degree Equations
+
+    not formalised in Isabelle yet
 
 17. DeMoivre's Theorem
 
@@ -242,6 +250,10 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Fermat3_4.html>
 
+24. The Undecidability of the Continuum Hypothesis
+
+    not formalised in Isabelle yet
+
 25. Schröder–Bernstein Theorem
 
     ```Isabelle
@@ -273,6 +285,14 @@ update it, let me know.
     ```
 
     <https://isa-afp.org/entries/Triangle.shtml>
+    
+28. Pascal's Hexagon Theorem
+
+    not formalised in Isabelle yet
+
+29. Feuerbach's Theorem
+
+    not formalised in Isabelle yet
 
 30. The Ballot Problem
 
@@ -296,6 +316,14 @@ update it, let me know.
     ```
 
     <https://isa-afp.org/entries/Ramsey-Infinite.shtml>
+    
+32. The Four Color Problem
+
+    not formalised in Isabelle yet
+
+33. Fermat's Last Theorem
+
+    not formalised in Isabelle yet
 
 34. Divergence of the Harmonic Series
 
@@ -408,6 +436,22 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Minkowskis_Theorem.shtml>
 
+41. Puiseux's Theorem
+
+42. Sum of the Reciprocals of the Triangular Numbers
+
+43. The Isoperimetric Theorem
+
+    ```Isabelle
+    definition triangle_num :: "nat ⇒ nat" where
+      "triangle_num n = (n * (n + 1)) div 2"
+
+    theorem inverse_triangle_num_sums:
+      "(λn. 1 / triangle_num (Suc n)) sums 2"
+    ```
+    
+    <https://isabelle.in.tum.de/library/HOL/HOL-ex/Triangular_Numbers.html>
+
 44. The Binomial Theorem
 
     ```Isabelle
@@ -492,6 +536,10 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Cayley_Hamilton.shtml>
 
+50. The Number of Platonic Solids
+
+    not formalised in Isabelle yet
+
 51. Wilson's Theorem
 
     ```Isabelle
@@ -547,6 +595,10 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Chord_Segments.shtml>
 
 
+56. The Hermite-Lindemann Transcendence Theorem
+
+    not formalised in Isabelle yet
+
 57. Heron's formula
 
     ```Isabelle
@@ -568,6 +620,19 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
+59. The Laws of Large Numbers
+
+    ```Isabelle
+    theorem (in prob_space) strong_law_of_large_numbers_iid:
+      fixes X :: "nat ⇒ 'a ⇒ real"
+      assumes indep: "indep_vars (λ_. borel) X UNIV"
+      assumes distr: "⋀i. distr M borel (X i) = distr M borel (X 0)"
+      assumes L1:    "integrable M (X 0)"
+      shows   "AE x in M. (λn. (∑i<n. X i x) / n) ⇢ expectation (X 0)"
+    ```
+    
+    <https://www.isa-afp.org/entries/Laws_of_Large_Numbers.html>
+    
 60. Bezout's Theorem
 
     ```Isabelle
@@ -576,6 +641,14 @@ update it, let me know.
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
+
+61. Theorem of Ceva
+
+    not formalised in Isabelle yet
+
+62. Fair Games Theorem
+
+    not formalised in Isabelle yet
 
 63. Cantor's Theorem
 
@@ -724,7 +797,18 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
-77. Sum of kth powers
+76. Fourier Series
+
+    ```Isabelle
+    corollary Fourier_Fejer_Cesaro_summable_simple:
+      assumes f: "continuous_on UNIV f"
+          and periodic: "⋀x. f (x + 2*pi) = f x"
+      shows "(λn. (∑m<n. ∑k≤2*m. Fourier_coefficient f k * trigonometric_set k x) / n) ⇢ f x"
+    ```
+    
+    <https://www.isa-afp.org/entries/Fourier.html>
+
+77. Sum of k-th powers
 
     ```Isabelle
     lemma sum_of_powers:
@@ -805,6 +889,10 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
+82. Dissection of Cubes (J.E. Littlewood's "elegant" proof)
+
+    not formalised in Isabelle yet
+
 83. The Friendship Theorem
 
     ```Isabelle
@@ -814,6 +902,10 @@ update it, let me know.
     ```
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
+
+84. Morley's Theorem
+
+    not formalised in Isabelle yet
 
 85. Divisibility by Three Rule
 
@@ -838,6 +930,16 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.thy.html>
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Equivalence_Lebesgue_Henstock_Integration.thy.html>
+
+87. Desargues's Theorem
+
+    ```Isabelle
+    theorem desargues_3D:
+      assumes "desargues_config_3D A B C A' B' C' P α β γ"
+      shows "rk {α, β, γ} ≤ 2"
+    ```
+    
+    https://isa-afp.org/entries/Derangements.shtml
 
 88. Derangements Formula
 
@@ -920,6 +1022,10 @@ update it, let me know.
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Groups.html>
+
+92. Pick's Theorem
+
+    not formalised in Isabelle yet
 
 93. The Birthday Problem
 
@@ -1015,8 +1121,7 @@ update it, let me know.
     ```
     <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
 
-100. Descartes Rule of Signs
-
+1. Descartes Rule of Signs
     ```Isabelle
     theorem descartes_sign_rule:
       fixes p :: "real poly"
@@ -1024,8 +1129,17 @@ update it, let me know.
       shows "∃d. even d ∧ coeff_sign_changes p = count_pos_roots p + d"
     ```
     <https://isa-afp.org/entries/Descartes_Sign_Rule.shtml>
-
-
+    
+    
+1. Atiyah-Singer Index Theorem
+    not formalised in Isabelle yet
+    
+1. Baker's Theorem on Linear Forms in Logarithms
+    not formalised in Isabelle yet
+    
+1. Borsuk-Ulam Theorem
+    not formalised in Isabelle yet
+    
 1. Cauchy's Integral Theorem
 
     ```Isabelle
@@ -1062,6 +1176,27 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
   
+1. Chen's theorem
+    not formalised in Isabelle yet
+    
+1. every vector space is free
+
+    ```isabelle
+    lemma (in vector_space) basis_exists:
+      obtains B where "B ⊆ V" "independent B" "V ⊆ span B" "card B = dim V"
+    ```
+    
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL/Vector_Spaces.html>
+    
+1. Classification of Finite Simple Groups
+    not formalised in Isabelle yet
+    
+1. Classification of semisimple Lie groups (Killing, Cartan, Dynkin)
+    not formalised in Isabelle yet
+    
+1. Sophie Germain's theorem
+    not formalised in Isabelle yet
+ 
 1. Gödel's Second Incompleteness Theorem
 
     ```Isabelle
@@ -1069,7 +1204,15 @@ update it, let me know.
     ```
   
     <https://www.isa-afp.org/entries/Incompleteness.html>
-  
+
+1. Green-Tao Theorem
+    not formalised in Isabelle yet
+    
+1. Feit-Thompson Theorem
+    not formalised in Isabelle yet
+    
+1. Fundamental Theorem of Galois Theory
+    not formalised in Isabelle yet
   
 1. Heine–Borel Theorem
 
@@ -1095,6 +1238,19 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Topology_Euclidean_Space.html>
   
   
+1. Hessenberg's Theorem = "Pappus → Desargues"
+
+    ```Isabelle
+    theorem hessenberg_thereom:
+      assumes "is_pappus"
+      shows "desargues_prop"
+    ```
+    
+    <https://www.isa-afp.org/entries/Projective_Geometry.html>
+    
+1. Hilbert Basis Theorem
+    not formalised in Isabelle yet
+  
 1. Hilbert Nullstellensatz
 
     ```Isabelle
@@ -1106,6 +1262,9 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Nullstellensatz.html>
 
 
+1. Hilbert-Waring theorem
+    not formalised in Isabelle yet
+    
 1. Invariance of Dimension
 
     ```Isabelle
@@ -1118,6 +1277,9 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Further_Topology.html>
 
+
+1. IP=PSPACE
+    not formalised in Isabelle yet
 
 1. Jordan Curve Theorem
 
@@ -1141,6 +1303,20 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
 
+1. Kepler Conjecture
+    not formalised in Isabelle yet
+
+1. Lie's work relating Algebras and Groups
+    not formalised in Isabelle yet
+    
+1. Nash's Theorem
+    not formalised in Isabelle yet
+    
+1. Perelman-Hamilton-Thurston theorem classifying compact 3-manifolds
+    not formalised in Isabelle yet
+    
+1. Poincaré Conjecture
+    not formalised in Isabelle yet
 
 1. Riemann Mapping Theorem
 
@@ -1186,6 +1362,10 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Comparison_Sort_Lower_Bound.html>
   
   
+1. Stokes' Theorem
+    not formalised in Isabelle yet
+
+  
 1. Stone–Weierstraß Theorem
   
     ```Isabelle
@@ -1212,6 +1392,12 @@ update it, let me know.
     ```  
   
     <https://www.isa-afp.org/entries/Triangle.html>
+
+1. Yoneda lemma
+
+    <https://www.isa-afp.org/entries/Category.html>
+    <https://www.isa-afp.org/entries/Category2.html>
+    <https://www.isa-afp.org/entries/Category3.html>
 
 1. ζ(-1) = -1 / 12
   
