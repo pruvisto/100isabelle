@@ -11,7 +11,7 @@ update it, let me know.
 
 
 1. Square Root of 2 is Irrational
-
+  
   ```Isabelle
     theorem sqrt_prime_irrational:
       assumes "prime (p::nat)"
@@ -19,27 +19,26 @@ update it, let me know.
 
     corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
   ```
-
   <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Sqrt.html>
-
+  
 2. Fundamental Theorem of Algebra
-
+  
   ```Isabelle
     lemma fundamental_theorem_of_algebra:
       assumes nc: "¬ constant (poly p)"
       shows "∃z::complex. poly p z = 0"
   ```
-
+  
   <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Fundamental_Theorem_Algebra.html>
-
+  
 3. Denumerability of the Rational Numbers
-
+  
   ```Isabelle
 	theorem rat_denum: "∃f :: nat ⇒ rat. surj f"
   ```
-
+  
   <https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Countable.html>
-
+  
 4. Pythagorean Theorem
 
   ```Isabelle
