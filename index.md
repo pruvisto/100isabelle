@@ -672,6 +672,7 @@ update it, let me know.
       assumes "∀⇩F u in at x. (g has_real_derivative g' u) (at u)"
       assumes "filterlim (λx. f' x / g' x) F (at x)"
       shows   "filterlim (λx. f x / g x) F (at x)"
+   ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
@@ -941,7 +942,7 @@ update it, let me know.
       shows "rk {α, β, γ} ≤ 2"
     ```
     
-    https://isa-afp.org/entries/Derangements.shtml
+    <https://www.isa-afp.org/entries/Projective_Geometry.html>
 
 88. Derangements Formula
 
@@ -1240,7 +1241,6 @@ update it, let me know.
 
     ```Isabelle
     definition (in topological_space) compact :: "'a set ⇒ bool" where
-      compact_eq_Heine_Borel:  (* This name is used for backwards compatibility *)
         "compact S ⟷ (∀C. (∀c∈C. open c) ∧ S ⊆ ⋃C ⟶ (∃D⊆C. finite D ∧ S ⊆ ⋃D))"
     ```
   
