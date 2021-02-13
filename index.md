@@ -13,7 +13,9 @@ update it, let me know.
 1. Square Root of 2 is Irrational
 
   ```isabelle
-    theorem sqrt_prime_irrational: "prime p \<Longrightarrow> sqrt (real p) \<notin> \<rat>"
+    theorem sqrt_prime_irrational:
+      assumes "prime (p::nat)"
+      shows "sqrt p ∉ ℚ"
 
     corollary sqrt_2_not_rat: "sqrt 2 ∉ ℚ"
   ```
@@ -23,9 +25,9 @@ update it, let me know.
 2. Fundamental Theorem of Algebra
 
   ```isabelle
-	lemma fundamental_theorem_of_algebra:
-	  assumes nc: "\<not> constant (poly p)"
-	  shows "\<exists>z::complex. poly p z = 0"
+    lemma fundamental_theorem_of_algebra:
+      assumes nc: "¬ constant (poly p)"
+      shows "∃z::complex. poly p z = 0"
   ```
 
   <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Fundamental_Theorem_Algebra.html>
@@ -56,7 +58,7 @@ update it, let me know.
     definition pi :: "nat ⇒ real"
       where "pi x = real (card {y::nat. y ≤ x ∧ prime y})"
     
-    lemma PrimeNumberTheorem: "(\<lambda>x. pi x * ln (real x) / real x) ⇢ 1"
+    lemma PrimeNumberTheorem: "(λx. pi x * ln (real x) / real x) ⇢ 1"
   ```
 
   <http://www.andrew.cmu.edu/user/avigad/isabelle/NumberTheory/PrimeNumberTheorem.html>
@@ -78,17 +80,17 @@ update it, let me know.
 
   ```isabelle
 	theorem Goedel_I:
-	  assumes "\<not> {} \<turnstile> Fls"
-	  obtains \<delta> where
-		  "{} \<turnstile> \<delta> IFF Neg (PfP \<lceil>\<delta>\<rceil>)"
-		  "\<not> {} \<turnstile> \<delta>"
-		  "\<not> {} \<turnstile> Neg \<delta>"
-	      "eval_fm e \<delta>"
-		  "ground_fm \<delta>"
+	  assumes "¬ {} ⊢ Fls"
+	  obtains δ where
+		  "{} ⊢ δ IFF Neg (PfP ⌈δ⌉)"
+		  "¬ {} ⊢ δ"
+		  "¬ {} ⊢ Neg δ"
+	      "eval_fm e δ"
+		  "ground_fm δ"
 
 	theorem Goedel_II:
-	  assumes "\<not> {} \<turnstile> Fls"
-	    shows "\<not> {} \<turnstile> Neg (PfP \<lceil>Fls\<rceil>)"
+	  assumes "¬ {} ⊢ Fls"
+	    shows "¬ {} ⊢ Neg (PfP ⌈Fls⌉)"
   ```
 
   <https://isa-afp.org/entries/Incompleteness.shtml>
@@ -107,10 +109,10 @@ update it, let me know.
 
   ```isabelle
 	theorem impossibility_of_doubling_the_cube:
-	  "x^3 = 2 \<Longrightarrow> (Point x 0) \<notin> constructible"
+	  "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
 
 	theorem impossibility_of_trisecting_angle_pi_over_3:
-	  "Point (cos (pi / 9)) 0 \<notin> constructible"
+	  "Point (cos (pi / 9)) 0 ∉ constructible"
   ```
 
   <https://isa-afp.org/entries/Impossible_Geometry.shtml>
@@ -155,7 +157,7 @@ update it, let me know.
 14. Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....
 
   ```isabelle
-    theorem inverse_squares_sums: "(λn. 1 / (n + 1)\<^sup>2) sums (pi\<^sup>2 / 6)"
+    theorem inverse_squares_sums: "(λn. 1 / (n + 1)²) sums (pi² / 6)"
   ```
 
   <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Gamma_Function.html>
