@@ -169,9 +169,9 @@ update it, let me know.
 17. DeMoivre's Theorem
 
     ```Isabelle
-	lemma DeMoivre: "(cis a) ^ n = cis (real n * a)"
+    lemma DeMoivre: "(cis a) ^ n = cis (real n * a)"
 
-	lemma DeMoivre2: "(rcis r a) ^ n = rcis (r ^ n) (real n * a)"
+    lemma DeMoivre2: "(rcis r a) ^ n = rcis (r ^ n) (real n * a)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Complex.html>
@@ -258,8 +258,8 @@ update it, let me know.
 26. Leibnitz's Series for Pi
 
     ```Isabelle
-	theorem pi_series:
-	  "pi / 4 = (∑k. (-1)^k * 1 / real (k*2+1))"
+     theorem pi_series:
+       "pi / 4 = (∑k. (-1)^k * 1 / real (k*2+1))"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Transcendental.html>
@@ -300,8 +300,8 @@ update it, let me know.
 34. Divergence of the Harmonic Series
 
     ```Isabelle
-	theorem not_summable_harmonic:
-	  shows "¬summable (λn. 1 / real (n + 1))"
+    theorem not_summable_harmonic:
+      shows "¬summable (λn. 1 / real (n + 1))"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Summation_Tests.html>
@@ -323,12 +323,12 @@ update it, let me know.
 36. Brouwer Fixed Point Theorem
 
     ```Isabelle
-	lemma brouwer:
-	  fixes f :: "'a::euclidean_space ⇒ 'a"
-	  assumes "compact S" and "convex S" and "S ≠ {}"
-	    and "continuous_on S f"
-	    and "f ` S ⊆ S"
-	  obtains x where "x ∈ S" and "f x = x"
+    lemma brouwer:
+      fixes f :: "'a::euclidean_space ⇒ 'a"
+      assumes "compact S" and "convex S" and "S ≠ {}"
+          and "continuous_on S f"
+          and "f ` S ⊆ S"
+          obtains x where "x ∈ S" and "f x = x"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Brouwer_Fixpoint.html>
@@ -363,15 +363,15 @@ update it, let me know.
 38. Arithmetic Mean / Geometric Mean
 
     ```Isabelle
-        theorem CauchysMeanTheorem:
-          fixes z :: "real list"
-          assumes "pos z"
-          shows "gmean z ≤ mean z"
-  
-	theorem CauchysMeanTheorem_Eq:
-	  fixes z :: "real list"
-	  assumes "pos z"
-	  shows "gmean z = mean z ⟷ het z = 0"
+    theorem CauchysMeanTheorem:
+      fixes z :: "real list"
+      assumes "pos z"
+      shows "gmean z ≤ mean z"
+      
+    theorem CauchysMeanTheorem_Eq:
+      fixes z :: "real list"
+      assumes "pos z"
+      shows "gmean z = mean z ⟷ het z = 0"
     ```
 
     <https://isa-afp.org/entries/Cauchy.shtml>
@@ -382,10 +382,10 @@ update it, let me know.
     theorem pell_solutions:
       fixes D :: nat
       assumes "∄k. D = k²"
-      obtains "x<sub>0</sub>" "y<sub>0</sub>" :: nat
+      obtains "x₀" "y₀" :: nat
       where   "∀(x::int) (y::int).
                  x² - D * y² = 1 ⟷
-                (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x<sub>0</sub> + sqrt D * y<sub>0</sub>) ^ n)"
+                (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x₀ + sqrt D * y₀) ^ n)"
 
     corollary pell_solutions_infinite:
       fixes D :: nat
@@ -430,19 +430,19 @@ update it, let me know.
 46. The Solution of the General Quartic Equation
 
     ```Isabelle
-	lemma quartic:
-	 "(y::real)^3 - b * y^2 + (a * c - 4 * d) * y - a^2 * d + 4 * b * d - c^2 = 0 ∧
-	  R^2 = a^2 / 4 - b + y ∧
-	  s^2 = y^2 - 4 * d ∧
-	  (D^2 = (if R = 0 then 3 * a^2 / 4 - 2 * b + 2 * s
-	                   else 3 * a^2 / 4 - R^2 - 2 * b + (4 * a * b - 8 * c - a^3) / (4 * R))) ∧
-	  (E^2 = (if R = 0 then 3 * a^2 / 4 - 2 * b - 2 * s
-	                   else 3 * a^2 / 4 - R^2 - 2 * b - (4 * a * b - 8 * c - a^3) / (4 * R)))
-	  ⟹ x^4 + a * x^3 + b * x^2 + c * x + d = 0 ⟷
-	      x = -a / 4 + R / 2 + D / 2 ∨
-	      x = -a / 4 + R / 2 - D / 2 ∨
-	      x = -a / 4 - R / 2 + E / 2 ∨
-	      x = -a / 4 - R / 2 - E / 2"
+    lemma quartic:
+      "(y::real)^3 - b * y^2 + (a * c - 4 * d) * y - a^2 * d + 4 * b * d - c^2 = 0 ∧
+       R^2 = a^2 / 4 - b + y ∧
+       s^2 = y^2 - 4 * d ∧
+       (D^2 = (if R = 0 then 3 * a^2 / 4 - 2 * b + 2 * s
+                        else 3 * a^2 / 4 - R^2 - 2 * b + (4 * a * b - 8 * c - a^3) / (4 * R))) ∧
+       (E^2 = (if R = 0 then 3 * a^2 / 4 - 2 * b - 2 * s
+                       else 3 * a^2 / 4 - R^2 - 2 * b - (4 * a * b - 8 * c - a^3) / (4 * R)))
+       ⟹ x^4 + a * x^3 + b * x^2 + c * x + d = 0 ⟷
+          x = -a / 4 + R / 2 + D / 2 ∨
+          x = -a / 4 + R / 2 - D / 2 ∨
+          x = -a / 4 - R / 2 + E / 2 ∨
+          x = -a / 4 - R / 2 - E / 2"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
@@ -450,24 +450,24 @@ update it, let me know.
 47. The Central Limit Theorem
 
     ```Isabelle
-	theorem (in prob_space) central_limit_theorem:
-	  fixes
-	    X :: "nat ⇒ 'a ⇒ real" and
-	    μ :: "real measure" and
-	    σ :: real and
-	    S :: "nat ⇒ 'a ⇒ real"
-	  assumes
-	    X_indep: "indep_vars (λi. borel) X UNIV" and
-	    X_mean_0: "⋀n. expectation (X n) = 0" and
-	    σ_pos: "σ > 0" and
-	    X_square_integrable: "⋀n. integrable M (λx. (X n x)⇧2)" and
-	    X_variance: "⋀n. variance (X n) = σ⇧2" and
-	    X_distrib: "⋀n. distr M borel (X n) = μ"
-	  defines
-	    "S n ≡ λx. ∑i<n. X i x"
-	  shows
-	    "weak_conv_m (λn. distr M borel (λx. S n x / sqrt (n * σ⇧2)))
-	        (density lborel std_normal_density)"
+    theorem (in prob_space) central_limit_theorem:
+      fixes
+        X :: "nat ⇒ 'a ⇒ real" and
+        μ :: "real measure" and
+        σ :: real and
+        S :: "nat ⇒ 'a ⇒ real"
+      assumes
+        X_indep: "indep_vars (λi. borel) X UNIV" and
+        X_mean_0: "⋀n. expectation (X n) = 0" and
+        σ_pos: "σ > 0" and
+        X_square_integrable: "⋀n. integrable M (λx. (X n x)⇧2)" and
+        X_variance: "⋀n. variance (X n) = σ⇧2" and
+        X_distrib: "⋀n. distr M borel (X n) = μ"
+      defines
+        "S n ≡ λx. ∑i<n. X i x"
+      shows
+        "weak_conv_m (λn. distr M borel (λx. S n x / sqrt (n * σ⇧2)))
+            (density lborel std_normal_density)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Probability/Central_Limit_Theorem.html>
@@ -485,9 +485,9 @@ update it, let me know.
 49. Cayley-Hamilton Theorem
 
     ```Isabelle
-	theorem Cayley_Hamilton:
-	  fixes A :: "'a :: comm_ring_1 ^ ('n :: finite) ^ 'n"
-	  shows "evalmat (charpoly A) A = 0"
+    theorem Cayley_Hamilton:
+      fixes A :: "'a :: comm_ring_1 ^ ('n :: finite) ^ 'n"
+      shows "evalmat (charpoly A) A = 0"
     ```
 
     <https://isa-afp.org/entries/Cayley_Hamilton.shtml>
@@ -505,8 +505,8 @@ update it, let me know.
 52. The Number of Subsets of a Set
 
     ```Isabelle
-	lemma card_Pow:
-	  "finite A ⟹ card (Pow A) = 2 ^ card A"
+    lemma card_Pow:
+      "finite A ⟹ card (Pow A) = 2 ^ card A"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Power.html>
@@ -514,7 +514,7 @@ update it, let me know.
 53. Pi is Transcendental
 
     ```Isabelle
-	theorem transcendental_pi: "¬algebraic pi"
+    theorem transcendental_pi: "¬algebraic pi"
     ```
 
     <https://www.isa-afp.org/entries/Pi_Transcendental.html>
@@ -522,13 +522,13 @@ update it, let me know.
 54. The Koenigsberg Bridges Problem
 
     ```Isabelle
-	lemma eulerian_split:
-	  assumes "nodes G1 ∩ nodes G2 = {}" "edges G1 ∩ edges G2={}"
-	    "valid_unMultigraph G1" "valid_unMultigraph G2"
-	    "valid_unMultigraph.is_Eulerian_trail  G1 v1 ps1 v1'"
-	    "valid_unMultigraph.is_Eulerian_trail  G2 v2 ps2 v2'"
-	  shows "valid_unMultigraph.is_Eulerian_trail ⦇nodes=nodes G1 ∪ nodes G2,
-	          edges=edges G1 ∪ edges G2 ∪ {(v1',w,v2),(v2,w,v1')}⦈ v1 (ps1@(v1',w,v2)#ps2) v2'"
+    lemma eulerian_split:
+      assumes "nodes G1 ∩ nodes G2 = {}" "edges G1 ∩ edges G2={}"
+        "valid_unMultigraph G1" "valid_unMultigraph G2"
+        "valid_unMultigraph.is_Eulerian_trail  G1 v1 ps1 v1'"
+        "valid_unMultigraph.is_Eulerian_trail  G2 v2 ps2 v2'"
+      shows "valid_unMultigraph.is_Eulerian_trail ⦇nodes=nodes G1 ∪ nodes G2,
+              edges=edges G1 ∪ edges G2 ∪ {(v1',w,v2),(v2,w,v1')}⦈ v1 (ps1@(v1',w,v2)#ps2) v2'"
     ```
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
@@ -562,8 +562,8 @@ update it, let me know.
 58. Formula for the Number of Combinations
 
     ```Isabelle
-	theorem n_subsets:
-	  "finite A ⟹ card {B. B ⊆ A ∧ card B = k} = (card A choose k)"
+    theorem n_subsets:
+      "finite A ⟹ card {B. B ⊆ A ∧ card B = k} = (card A choose k)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
@@ -613,11 +613,11 @@ update it, let me know.
 66. Sum of a Geometric Series
 
     ```Isabelle
-	lemma geometric_sums:
-	  "norm c < 1 ⟹ (λn. c^n) sums (1 / (1 - c))"
+    lemma geometric_sums:
+      "norm c < 1 ⟹ (λn. c^n) sums (1 / (1 - c))"
 
-	lemma suminf_geometric:
-	  "norm c < 1 ⟹ (∑n. c ^ n) = 1 / (1 - c)"
+    lemma suminf_geometric:
+      "norm c < 1 ⟹ (∑n. c ^ n) = 1 / (1 - c)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Series.html>
@@ -654,9 +654,9 @@ update it, let me know.
 70. Perfect Number Theorem
 
     ```Isabelle
-	theorem perfect_number_theorem:
-	  assumes even: "even m" and perfect: "perfect m"
-	  shows "∃n. m = 2^n*(2^(n+1) - 1) ∧ prime ((2::nat)^(n+1) - 1)"
+    theorem perfect_number_theorem:
+      assumes even: "even m" and perfect: "perfect m"
+      shows "∃n. m = 2^n*(2^(n+1) - 1) ∧ prime ((2::nat)^(n+1) - 1)"
     ```
 
     <https://isa-afp.org/entries/Perfect-Number-Thm.shtml>
@@ -713,7 +713,7 @@ update it, let me know.
           and "∀x∈{a..b}. isCont f x"
           and "∀x∈{a<..<b}. f differentiable (at x)"
       shows "∃l z. z ∈ {a<..<b} ∧ (f has_real_derivative l) (at z) ∧
-	             f b - f a = (b - a) * l"
+                 f b - f a = (b - a) * l"
 
     lemma MVT2:
       fixes a b :: real and f f' :: "real ⇒ real"
@@ -737,10 +737,10 @@ update it, let me know.
 78. The Cauchy-Schwarz Inequality
 
     ```Isabelle
-	theorem CauchySchwarzReal:
-	  fixes x::vector
-	  assumes "vlen x = vlen y"
-	  shows "¦x ⋅ y¦ ≤ ∥x∥ * ∥y∥"
+    theorem CauchySchwarzReal:
+      fixes x::vector
+      assumes "vlen x = vlen y"
+      shows "¦x ⋅ y¦ ≤ ∥x∥ * ∥y∥"
     ```
     <https://isa-afp.org/entries/Cauchy.shtml>
   
@@ -808,9 +808,9 @@ update it, let me know.
 83. The Friendship Theorem
 
     ```Isabelle
-	theorem (in valid_unSimpGraph) friendship_thm:
-	  assumes "⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n" and "finite V"
-	  shows "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
+    theorem (in valid_unSimpGraph) friendship_thm:
+      assumes "⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n" and "finite V"
+      shows "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
     ```
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
@@ -852,11 +852,11 @@ update it, let me know.
 89. The Factor and Remainder Theorems
 
     ```Isabelle
-	lemma long_div_theorem:
-	  assumes "g ∈ carrier P" and "f ∈ carrier P" and "g ≠ 𝟬⇘P⇙"
-	  shows "∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
-		    (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
-			(r = 𝟬⇘P⇙ | deg R r < deg R g)"
+    lemma long_div_theorem:
+      assumes "g ∈ carrier P" and "f ∈ carrier P" and "g ≠ 𝟬⇘P⇙"
+      shows "∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
+            (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
+            (r = 𝟬⇘P⇙ | deg R r < deg R g)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html>
@@ -904,19 +904,19 @@ update it, let me know.
 91. The Triangle Inequality
 
     ```Isabelle
-	class ordered_ab_group_add_abs = ordered_ab_group_add + abs +
-	  assumes abs_ge_zero: "¦a¦ ≥ 0"
-	    and abs_ge_self: "a ≤ ¦a¦"
-	    and abs_leI: "a ≤ b ⟹ - a ≤ b ⟹ ¦a¦ ≤ b"
-	    and abs_minus_cancel: "¦-a¦ = ¦a¦"
-	    and abs_triangle_ineq: "¦a + b¦ ≤ ¦a¦ + ¦b¦"
+    class ordered_ab_group_add_abs = ordered_ab_group_add + abs +
+      assumes abs_ge_zero: "¦a¦ ≥ 0"
+        and abs_ge_self: "a ≤ ¦a¦"
+        and abs_leI: "a ≤ b ⟹ - a ≤ b ⟹ ¦a¦ ≤ b"
+        and abs_minus_cancel: "¦-a¦ = ¦a¦"
+        and abs_triangle_ineq: "¦a + b¦ ≤ ¦a¦ + ¦b¦"
     ```
 
     The triangle inequality is a type class property in Isabelle. Real numbers, integers, etc are instances of this type class:
 
     ```Isabelle
-	lemma abs_triangle_ineq_real: "¦(a::real) + b¦ ≤ ¦a¦ + ¦b¦"
-	lemma abs_triangle_ineq_int: "¦(a::int) + b¦ ≤ ¦a¦ + ¦b¦"
+    lemma abs_triangle_ineq_real: "¦(a::real) + b¦ ≤ ¦a¦ + ¦b¦"
+    lemma abs_triangle_ineq_int: "¦(a::int) + b¦ ≤ ¦a¦ + ¦b¦"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Groups.html>
@@ -924,9 +924,9 @@ update it, let me know.
 93. The Birthday Problem
 
     ```Isabelle
-	lemma birthday_paradox:
-	  assumes "card S = 23" "card T = 365"
-	  shows "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
+    lemma birthday_paradox:
+      assumes "card S = 23" "card T = 365"
+      shows "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html>
@@ -969,10 +969,10 @@ update it, let me know.
 97. Cramer's Rule
 
     ```Isabelle
-	lemma cramer:
-	  fixes A ::"real^'n^'n"
-	  assumes d0: "det A ≠ 0"
-	  shows "A *v x = b ⟷ x = (χ k. det(χ i j. if j=k then b$i else A$i$j) / det A)"
+    lemma cramer:
+      fixes A ::"real^'n^'n"
+      assumes d0: "det A ≠ 0"
+      shows "A *v x = b ⟷ x = (χ k. det(χ i j. if j=k then b$i else A$i$j) / det A)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Determinants.html>
