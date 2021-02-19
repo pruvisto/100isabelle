@@ -1099,27 +1099,22 @@ update it, let me know.
     ```Isabelle
     definition needle :: "real ⇒ real ⇒ real ⇒ real set" where
       "needle l x φ = closed_segment (x - l / 2 * sin φ) (x + l / 2 * sin φ)"
-  
-    definition buffon :: "real ⇒ real ⇒ bool measure" where
-      "buffon l d = 
-         do {
-           (x, φ) ← uniform_measure lborel ({-d/2..d/2} × {-pi..pi});
-           return (count_space UNIV) (needle l x φ ∩ {-d/2, d/2} ≠ {})
-         }" 
-  
+    
     locale Buffon =
       fixes d l :: real
       assumes d: "d > 0" and l: "l > 0"
     begin
     
-    sublocale prob_space "buffon l d"
+    definition Buffon :: "(real × real) measure" where
+      "Buffon = uniform_measure lborel ({-d/2..d/2} × {-pi..pi})"
     
     theorem prob_short:
-      "l ≤ d ⟹ prob {True} = prob {True} = 2 * l / (d * pi)"
-      
+      "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) = 2 * l / (d * pi)"
+    
     theorem prob_long:
-      "l ≥ d ⟹ prob {True} = 2 / pi * ((l / d) - sqrt ((l / d)² - 1) + arccos (d / l))"
-
+      "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) =
+         2 / pi * ((l / d) - sqrt ((l / d)² - 1) + arccos (d / l))"
+         
     end
     ```
     <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
