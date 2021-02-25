@@ -440,6 +440,24 @@ update it, let me know.
 
 41. Puiseux's Theorem
 
+    The formal Puiseux series `'a fpxs` for some coefficient type `'a` is defined as the
+    type of functions `rat ⇒ 'a` for which the support is bounded from below and the 
+    denominators of the support have a common denominator:
+
+    ```Isabelle
+    definition is_fpxs :: "(rat ⇒ 'a :: zero) ⇒ bool" where
+      "is_fpxs f ⟷ bdd_below (supp f) ∧ (LCM r∈supp f. snd (quotient_of r)) ≠ 0"
+
+    typedef (overloaded) 'a fpxs = "{f::rat ⇒ 'a :: zero. is_fpxs f}"
+       morphisms fpxs_nth Abs_fpxs
+    ```
+    
+    It is then shown that if `'a` is an algebraically closed field of characteristic 0, then
+    `'a fpxs` is also an algebraically closed field:
+    ```Isabelle
+    instance fpxs :: ("{alg_closed_field, field_char_0, field_gcd}") alg_closed_field
+    ```
+
 42. Sum of the Reciprocals of the Triangular Numbers
 
     ```Isabelle
