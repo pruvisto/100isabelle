@@ -269,7 +269,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Inductive.html>
 
-26. Leibnitz's Series for Pi
+26. Leibnitz's Series for *π*
 
     ```Isabelle
      theorem pi_series:
@@ -581,7 +581,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Power.html>
 
-53. Pi is Transcendental
+53. *π* is Transcendental
 
     ```Isabelle
     theorem transcendental_pi: "¬algebraic pi"
@@ -718,7 +718,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Series.html>
 
-67. e is Transcendental
+67. *e* is Transcendental
 
     ```Isabelle
     corollary e_transcendental_real: "¬ algebraic (exp 1 :: real)"
