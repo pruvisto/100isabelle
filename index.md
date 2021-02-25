@@ -454,15 +454,7 @@ update it, let me know.
 
 43. The Isoperimetric Theorem
 
-    ```Isabelle
-    definition triangle_num :: "nat ⇒ nat" where
-      "triangle_num n = (n * (n + 1)) div 2"
-
-    theorem inverse_triangle_num_sums:
-      "(λn. 1 / triangle_num (Suc n)) sums 2"
-    ```
-    
-    <https://isabelle.in.tum.de/library/HOL/HOL-ex/Triangular_Numbers.html>
+    not formalised in Isabelle yet
 
 44. The Binomial Theorem
 
