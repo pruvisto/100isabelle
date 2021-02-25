@@ -442,6 +442,16 @@ update it, let me know.
 
 42. Sum of the Reciprocals of the Triangular Numbers
 
+    ```Isabelle
+    definition triangle_num :: "nat ⇒ nat" where
+      "triangle_num n = (n * (n + 1)) div 2"
+
+    theorem inverse_triangle_num_sums:
+      "(λn. 1 / triangle_num (Suc n)) sums 2"
+    ```
+
+    <https://isabelle.in.tum.de/library/HOL/HOL-ex/Triangular_Numbers.html>
+
 43. The Isoperimetric Theorem
 
     ```Isabelle
