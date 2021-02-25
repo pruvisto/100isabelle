@@ -571,7 +571,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Pi_Transcendental.html>
 
-54. The Koenigsberg Bridges Problem
+54. The Königsberg Bridges Problem
 
     ```Isabelle
     lemma eulerian_split:
@@ -813,7 +813,7 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Fourier.html>
 
-77. Sum of k-th powers
+77. Sum of *k*-th powers
 
     ```Isabelle
     lemma sum_of_powers:
@@ -1241,7 +1241,7 @@ update it, let me know.
         "compact S ⟷ (∀C. (∀c∈C. open c) ∧ S ⊆ ⋃C ⟶ (∃D⊆C. finite D ∧ S ⊆ ⋃D))"
     ```
   
-    For types of the `heine_borel` type class, this is proven to be equivalent to the set beind bounded and closed:
+    For types of the `heine_borel` type class, this is proven to be equivalent to the set being bounded and closed:
     ```Isabelle
     lemma compact_eq_bounded_closed:
       fixes s :: "'a :: heine_borel set"
