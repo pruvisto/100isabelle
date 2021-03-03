@@ -619,7 +619,23 @@ update it, let me know.
 
 56. The Hermite-Lindemann Transcendence Theorem
 
-    not formalised in Isabelle yet
+    ```Isabelle
+    theorem Hermite_Lindemann:
+      fixes α β :: "'a ⇒ complex"
+      assumes "finite I"
+      assumes "⋀x. x ∈ I ⟹ algebraic (α x)"
+      assumes "⋀x. x ∈ I ⟹ algebraic (β x)"
+      assumes "inj_on α I"
+      assumes "(∑x∈I. β x * exp (α x)) = 0"
+      shows   "∀x∈I. β x = 0"
+      
+    corollary Hermite_Lindemann_original:
+      fixes n :: nat and α :: "nat ⇒ complex"
+      assumes "inj_on α {..<n}"
+      assumes "⋀i. i < n ⟹ algebraic (α i)"
+      assumes "linearly_independent_over_int (α ` {..<n})"
+      shows   "algebraically_independent_over_rat n (λi. exp (α i))"
+    ```
 
 57. Heron's formula
 
