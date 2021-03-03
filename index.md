@@ -1145,11 +1145,14 @@ update it, let me know.
       "Buffon = uniform_measure lborel ({-d/2..d/2} × {-pi..pi})"
     
     theorem prob_short:
-      "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) = 2 * l / (d * pi)"
+      assumes "l ≤ d"
+      shows   "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) =
+                 2 * l / (d * pi)"
     
     theorem prob_long:
-      "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) =
-         2 / pi * ((l / d) - sqrt ((l / d)² - 1) + arccos (d / l))"
+      assumes "l ≥ d"
+      shows   "𝒫((x,φ) in Buffon. needle l x φ ∩ {-d/2, d/2} ≠ {}) =
+                 2 / pi * ((l / d) - sqrt ((l / d)² - 1) + arccos (d / l))"
          
     end
     ```
