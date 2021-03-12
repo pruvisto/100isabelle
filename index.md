@@ -637,6 +637,8 @@ update it, let me know.
       shows   "algebraically_independent_over_rat n (λi. exp (α i))"
     ```
 
+    <https://www.isa-afp.org/entries/Hermite_Lindemann.html>
+
 57. Heron's formula
 
     ```Isabelle
