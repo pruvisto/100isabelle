@@ -10,7 +10,7 @@ version of each theorem. If you find one that that is out of date and would like
 update it, let me know.
 
 
-1. Square Root of 2 is Irrational
+1. <span id="1">Square Root of 2 is Irrational<span>
     ```Isabelle
     theorem sqrt_prime_irrational:
       assumes "prime (p::nat)"
@@ -20,7 +20,7 @@ update it, let me know.
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Sqrt.html>
   
-2. Fundamental Theorem of Algebra
+1. <span id="2">Fundamental Theorem of Algebra<span>
     ```Isabelle
     lemma fundamental_theorem_of_algebra:
       assumes nc: "¬ constant (poly p)"
@@ -28,13 +28,13 @@ update it, let me know.
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Fundamental_Theorem_Algebra.html>
   
-3. Denumerability of the Rational Numbers
+1. <span id="3">Denumerability of the Rational Numbers<span>
     ```Isabelle
     theorem rat_denum: "∃f :: nat ⇒ rat. surj f"
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Countable.html>
   
-4. Pythagorean Theorem
+1. <span id="4">Pythagorean Theorem<span>
     ```Isabelle
     lemma Pythagoras:
       fixes A B C :: "'a :: real_inner"
@@ -44,7 +44,7 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Triangle.html>
 
-5. Prime Number Theorem
+1. <span id="5">Prime Number Theorem<span>
     Avigad *et al.* formalised the elementary Erdős–Selberg proof:
     ```Isabelle
     definition pi :: "nat ⇒ real"
@@ -64,7 +64,7 @@ update it, let me know.
     ```
     <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
-6. Gödel's Incompleteness Theorem
+1. <span id="6">Gödel's Incompleteness Theorem<span>
 
     ```Isabelle
     theorem Goedel_I:
@@ -81,7 +81,7 @@ update it, let me know.
     ```
     <https://isa-afp.org/entries/Incompleteness.shtml>
 
-7. Law of Quadratic Reciprocity
+1. <span id="7">Law of Quadratic Reciprocity<span>
 
     ```Isabelle
     theorem Quadratic_Reciprocity:
@@ -90,7 +90,7 @@ update it, let me know.
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Quadratic_Reciprocity.html>
 
-8. The Impossibility of Trisecting the Angle and Doubling the Cube
+1. <span id="8">The Impossibility of Trisecting the Angle and Doubling the Cube<span>
     ```Isabelle
     theorem impossibility_of_doubling_the_cube:
       "x^3 = 2 ⟹ (Point x 0) ∉ constructible"
@@ -100,7 +100,7 @@ update it, let me know.
     ```
     <https://isa-afp.org/entries/Impossible_Geometry.shtml>
 
-9. The Area of a Circle
+1. <span id="9">The Area of a Circle<span>
     ```Isabelle
     theorem content_ball:
       fixes c :: "'a :: euclidean_space"
@@ -112,7 +112,7 @@ update it, let me know.
     ```
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Ball_Volume.html>
 
-10. Euler's Generalisation of Fermat's Little Theorem
+1. <span id="10">Euler's Generalisation of Fermat's Little Theorem<span>
 
     ```Isabelle
     lemma euler_theorem:
@@ -123,7 +123,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
 
-11. The Infinitude of Primes
+1. <span id="11">The Infinitude of Primes<span>
 
     ```Isabelle
     lemma primes_infinite: "¬finite {p::nat. prime p}"
@@ -131,15 +131,15 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Primes.html>
 
-12. The Independence of the Parallel Postulate
+1. <span id="12">The Independence of the Parallel Postulate<span>
 
     <https://isa-afp.org/entries/Tarskis_Geometry.shtml>
 
-13. Polyhedron Formula
+1. <span id="13">Polyhedron Formula<span>
 
     not formalised in Isabelle yet
 
-14. Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....
+1. <span id="14">Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....<span>
 
     ```Isabelle
     theorem inverse_squares_sums: "(λn. 1 / (n + 1)²) sums (pi² / 6)"
@@ -159,7 +159,7 @@ update it, let me know.
     <https://www.isa-afp.org/browser_info/current/AFP/Bernoulli/Bernoulli_Zeta.html>
 
 
-15. Fundamental Theorem of Integral Calculus
+1. <span id="15">Fundamental Theorem of Integral Calculus<span>
 
     ```Isabelle
     theorem fundamental_theorem_of_calculus:
@@ -172,11 +172,11 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Henstock_Kurzweil_Integration.html>
   
 
-16. Insolvability of General Higher Degree Equations
+1. <span id="16">Insolvability of General Higher Degree Equations<span>
 
     not formalised in Isabelle yet
 
-17. DeMoivre's Theorem
+1. <span id="17">DeMoivre's Theorem<span>
 
     ```Isabelle
     lemma DeMoivre: "(cis a) ^ n = cis (real n * a)"
@@ -186,7 +186,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Complex.html>
 
-18. Liouville's Theorem and the Construction of Transcendental Numbers
+1. <span id="18">Liouville's Theorem and the Construction of Transcendental Numbers<span>
 
     ```Isabelle
     corollary transcendental_liouville_constant:
@@ -195,7 +195,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Liouville_Numbers.shtml>
 
-19. Lagrange's Four-Square Theorem
+1. <span id="19">Lagrange's Four-Square Theorem<span>
 
     ```Isabelle
     theorem four_squares: "∃a b c d::nat. n = a² + b² + c² + d²"
@@ -203,7 +203,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/SumSquares.html>
 
-20. All Primes (1 mod 4) Equal the Sum of Two Squares
+1. <span id="20">All Primes (1 mod 4) Equal the Sum of Two Squares<span>
 
     ```Isabelle
     theorem two_squares:
@@ -213,7 +213,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/SumSquares.html>
 
-21. Green's theorem
+1. <span id="21">Green's theorem<span>
 
     ```Isabelle
     lemma GreenThm_typeI_typeII_divisible_region:
@@ -233,7 +233,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Green.html>
 
-22. The Non-Denumerability of the Continuum
+1. <span id="22">The Non-Denumerability of the Continuum<span>
 
     ```Isabelle
     theorem real_non_denum: "∄f :: nat ⇒ real. surj f"
@@ -241,7 +241,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Continuum_Not_Denumerable.html>
 
-23. Formula for Pythagorean Triples
+1. <span id="23">Formula for Pythagorean Triples<span>
 
     ```Isabelle
     theorem nat_euclid_pyth_triples:
@@ -252,7 +252,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Fermat3_4.html>
 
-24. The Undecidability of the Continuum Hypothesis
+1. <span id="24">The Undecidability of the Continuum Hypothesis<span>
 
     ```Isabelle
     corollary ctm_ZFC_imp_ctm_CH:
@@ -272,7 +272,7 @@ update it, let me know.
 				(∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
     ```
 
-25. Schröder–Bernstein Theorem
+1. <span id="25">Schröder–Bernstein Theorem<span>
 
     ```Isabelle
     theorem Schroeder_Bernstein:
@@ -285,7 +285,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Inductive.html>
 
-26. Leibnitz's Series for *π*
+1. <span id="26">Leibnitz's Series for *π*<span>
 
     ```Isabelle
      theorem pi_series:
@@ -294,7 +294,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Transcendental.html>
 
-27. Sum of the Angles of a Triangle
+1. <span id="27">Sum of the Angles of a Triangle<span>
 
     ```Isabelle
     lemma angle_sum_triangle:
@@ -304,15 +304,15 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Triangle.shtml>
     
-28. Pascal's Hexagon Theorem
+1. <span id="28">Pascal's Hexagon Theorem<span>
 
     not formalised in Isabelle yet
 
-29. Feuerbach's Theorem
+1. <span id="29">Feuerbach's Theorem<span>
 
     not formalised in Isabelle yet
 
-30. The Ballot Problem
+1. <span id="30">The Ballot Problem<span>
 
     ```Isabelle
     lemma "valid_countings a b = (if a ≤ b then (if b = 0 then 1 else 0) else (a - b) / (a + b) * all_countings a b)"
@@ -320,7 +320,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html>
 
-31. Ramsey's Theorem
+1. <span id="31">Ramsey's Theorem<span>
 
     ```Isabelle
     lemma ramsey:
@@ -335,15 +335,15 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Ramsey-Infinite.shtml>
     
-32. The Four Color Problem
+1. <span id="32">The Four Color Problem<span>
 
     not formalised in Isabelle yet
 
-33. Fermat's Last Theorem
+1. <span id="33">Fermat's Last Theorem<span>
 
     not formalised in Isabelle yet
 
-34. Divergence of the Harmonic Series
+1. <span id="34">Divergence of the Harmonic Series<span>
 
     ```Isabelle
     theorem not_summable_harmonic:
@@ -352,7 +352,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Summation_Tests.html>
 
-35. Taylor's Theorem
+1. <span id="35">Taylor's Theorem<span>
 
     ```Isabelle
     theorem taylor:
@@ -366,7 +366,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/MacLaurin.html>
 
-36. Brouwer Fixed Point Theorem
+1. <span id="36">Brouwer Fixed Point Theorem<span>
 
     ```Isabelle
     lemma brouwer:
@@ -379,7 +379,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Brouwer_Fixpoint.html>
 
-37. The Solution of a Cubic
+1. <span id="37">The Solution of a Cubic<span>
 
     ```Isabelle
     lemma cubic:
@@ -406,7 +406,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
 
-38. Arithmetic Mean / Geometric Mean
+1. <span id="38">Arithmetic Mean / Geometric Mean<span>
 
     ```Isabelle
     theorem CauchysMeanTheorem:
@@ -422,7 +422,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Cauchy.shtml>
 
-39. Solutions to Pell's Equation
+1. <span id="39">Solutions to Pell's Equation<span>
 
     ```Isabelle
     theorem pell_solutions:
@@ -441,7 +441,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Pell.html>
 
-40. Minkowski's Fundamental Theorem
+1. <span id="40">Minkowski's Fundamental Theorem<span>
 
     ```Isabelle
     theorem minkowski:
@@ -454,7 +454,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Minkowskis_Theorem.shtml>
 
-41. Puiseux's Theorem
+1. <span id="41">Puiseux's Theorem<span>
 
     The formal Puiseux series `'a fpxs` for some coefficient type `'a` is defined as the
     type of functions `rat ⇒ 'a` for which the support is bounded from below and the 
@@ -474,7 +474,7 @@ update it, let me know.
     instance fpxs :: ("{alg_closed_field, field_char_0, field_gcd}") alg_closed_field
     ```
 
-42. Sum of the Reciprocals of the Triangular Numbers
+1. <span id="42">Sum of the Reciprocals of the Triangular Numbers<span>
 
     ```Isabelle
     definition triangle_num :: "nat ⇒ nat" where
@@ -486,11 +486,11 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/library/HOL/HOL-ex/Triangular_Numbers.html>
 
-43. The Isoperimetric Theorem
+1. <span id="43">The Isoperimetric Theorem<span>
 
     not formalised in Isabelle yet
 
-44. The Binomial Theorem
+1. <span id="44">The Binomial Theorem<span>
 
     ```Isabelle
     theorem binomial_ring:
@@ -500,7 +500,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
-45. The Partition Theorem
+1. <span id="45">The Partition Theorem<span>
 
     ```Isabelle
     theorem Euler_partition_theorem:
@@ -509,7 +509,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Euler_Partition.shtml>
 
-46. The Solution of the General Quartic Equation
+1. <span id="46">The Solution of the General Quartic Equation<span>
 
     ```Isabelle
     lemma quartic:
@@ -529,7 +529,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
 
-47. The Central Limit Theorem
+1. <span id="47">The Central Limit Theorem<span>
 
     ```Isabelle
     theorem (in prob_space) central_limit_theorem:
@@ -554,7 +554,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Probability/Central_Limit_Theorem.html>
 
-48. Dirichlet's Theorem
+1. <span id="48">Dirichlet's Theorem<span>
 
     ```Isabelle
     theorem Dirichlet:
@@ -564,7 +564,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Dirichlet_L.html>
 
-49. Cayley-Hamilton Theorem
+1. <span id="49">Cayley-Hamilton Theorem<span>
 
     ```Isabelle
     theorem Cayley_Hamilton:
@@ -574,11 +574,11 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Cayley_Hamilton.shtml>
 
-50. The Number of Platonic Solids
+1. <span id="50">The Number of Platonic Solids<span>
 
     not formalised in Isabelle yet
 
-51. Wilson's Theorem
+1. <span id="51">Wilson's Theorem<span>
 
     ```Isabelle
     lemma wilson_theorem:
@@ -588,7 +588,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Number_Theory/Residues.html>
 
-52. The Number of Subsets of a Set
+1. <span id="52">The Number of Subsets of a Set<span>
 
     ```Isabelle
     lemma card_Pow:
@@ -597,7 +597,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Power.html>
 
-53. *π* is Transcendental
+1. <span id="53">*π* is Transcendental<span>
 
     ```Isabelle
     theorem transcendental_pi: "¬algebraic pi"
@@ -605,7 +605,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Pi_Transcendental.html>
 
-54. The Königsberg Bridges Problem
+1. <span id="54">The Königsberg Bridges Problem<span>
 
     ```Isabelle
     lemma eulerian_split:
@@ -619,7 +619,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
 
-55. Product of Segments of Chords
+1. <span id="55">Product of Segments of Chords<span>
 
     ```Isabelle
     theorem product_of_chord_segments:
@@ -633,7 +633,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Chord_Segments.shtml>
 
 
-56. The Hermite-Lindemann Transcendence Theorem
+1. <span id="56">The Hermite-Lindemann Transcendence Theorem<span>
 
     ```Isabelle
     theorem Hermite_Lindemann:
@@ -655,7 +655,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Hermite_Lindemann.html>
 
-57. Heron's formula
+1. <span id="57">Heron's formula<span>
 
     ```Isabelle
     theorem heron:
@@ -667,7 +667,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Simplex_Content.html>
 
-58. Formula for the Number of Combinations
+1. <span id="58">Formula for the Number of Combinations<span>
 
     ```Isabelle
     theorem n_subsets:
@@ -676,7 +676,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
-59. The Laws of Large Numbers
+1. <span id="59">The Laws of Large Numbers<span>
 
     ```Isabelle
     theorem (in prob_space) strong_law_of_large_numbers_iid:
@@ -689,7 +689,7 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Laws_of_Large_Numbers.html>
     
-60. Bezout's Theorem
+1. <span id="60">Bezout's Theorem<span>
 
     ```Isabelle
       lemma (in euclidean_ring_gcd) bezout_coefficients:
@@ -698,15 +698,15 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
 
-61. Theorem of Ceva
+1. <span id="61">Theorem of Ceva<span>
 
     not formalised in Isabelle yet
 
-62. Fair Games Theorem
+1. <span id="62">Fair Games Theorem<span>
 
     not formalised in Isabelle yet
 
-63. Cantor's Theorem
+1. <span id="63">Cantor's Theorem<span>
 
     ```Isabelle
     lemma Cantors_paradox: ∄f. f ` A = Pow A
@@ -714,7 +714,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html>
 
-64. L'Hôpital's Rule
+1. <span id="64">L'Hôpital's Rule<span>
 
     ```Isabelle
     lemma lhopital:
@@ -730,7 +730,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
-65. Isosceles Triangle Theorem
+1. <span id="65">Isosceles Triangle Theorem<span>
 
     ```Isabelle
     lemma isosceles_triangle:
@@ -740,7 +740,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Triangle.shtml>
 
-66. Sum of a Geometric Series
+1. <span id="66">Sum of a Geometric Series<span>
 
     ```Isabelle
     lemma geometric_sums:
@@ -752,7 +752,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Series.html>
 
-67. *e* is Transcendental
+1. <span id="67">*e* is Transcendental<span>
 
     ```Isabelle
     corollary e_transcendental_real: "¬ algebraic (exp 1 :: real)"
@@ -760,7 +760,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/E_Transcendental.shtml>
 
-68. Sum of an Arithmetic Series
+1. <span id="68">Sum of an Arithmetic Series<span>
 
     ```Isabelle
     lemma double_arith_series:
@@ -768,7 +768,7 @@ update it, let me know.
       shows "2 * (∑i=0..n. a + of_nat i * d) = (of_nat n + 1) * (2 * a + of_nat n * d)"
     ```
 
-69. Greatest Common Divisor Algorithm
+1. <span id="69">Greatest Common Divisor Algorithm<span>
 
     The greatest common divisor is defined in the `semiring_gcd` typeclass. Instances are provided for all the basic types, such as naturals, integers, and polynomials.
     The most important properties are:
@@ -781,7 +781,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html>
 
-70. Perfect Number Theorem
+1. <span id="70">Perfect Number Theorem<span>
 
     ```Isabelle
     theorem perfect_number_theorem:
@@ -791,7 +791,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Perfect-Number-Thm.shtml>
 
-71. Order of a Subgroup
+1. <span id="71">Order of a Subgroup<span>
 
     ```Isabelle
     proposition (in group) lagrange_finite:
@@ -801,7 +801,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Coset.html>
 
-72. Sylow's Theorem
+1. <span id="72">Sylow's Theorem<span>
 
     ```Isabelle
     theorem sylow_thm:
@@ -811,7 +811,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/Sylow.html>
 
-73. Ascending or Descending Sequences
+1. <span id="73">Ascending or Descending Sequences<span>
 
     ```Isabelle
     lemma Erdoes_Szekeres:
@@ -822,7 +822,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html>
 
-74. The Principle of Mathematical Induction
+1. <span id="74">The Principle of Mathematical Induction<span>
 
     ```Isabelle
     theorem nat_induct:
@@ -833,7 +833,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Nat.html>
 
-75. The Mean Value Theorem
+1. <span id="75">The Mean Value Theorem<span>
 
 
     ```Isabelle
@@ -854,7 +854,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
 
-76. Fourier Series
+1. <span id="76">Fourier Series<span>
 
     ```Isabelle
     corollary Fourier_Fejer_Cesaro_summable_simple:
@@ -865,7 +865,7 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Fourier.html>
 
-77. Sum of *k*-th powers
+1. <span id="77">Sum of *k*-th powers<span>
 
     ```Isabelle
     lemma sum_of_powers:
@@ -875,7 +875,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Bernoulli.html>
 
-78. The Cauchy-Schwarz Inequality
+1. <span id="78">The Cauchy-Schwarz Inequality<span>
 
     ```Isabelle
     theorem CauchySchwarzReal:
@@ -895,7 +895,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html>
  
 
-79. The Intermediate Value Theorem
+1. <span id="79">The Intermediate Value Theorem<span>
 
     ```Isabelle
     lemma IVT':
@@ -906,7 +906,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Topological_Spaces.html>
 
-80. Fundamental Theorem of Arithmetic
+1. <span id="80">Fundamental Theorem of Arithmetic<span>
 
     The function `prime_factorization` is defined for any factorial semiring. It returns the factorization as a multiset that fulfils the following properties:
 
@@ -928,7 +928,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Factorial_Ring.html>
 
 
-81. Divergence of the Prime Reciprocal Series
+1. <span id="81">Divergence of the Prime Reciprocal Series<span>
 
     ```Isabelle
     corollary prime_harmonic_series_diverges:
@@ -946,11 +946,11 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
-82. Dissection of Cubes (J.E. Littlewood's "elegant" proof)
+1. <span id="82">Dissection of Cubes (J.E. Littlewood's "elegant" proof)<span>
 
     not formalised in Isabelle yet
 
-83. The Friendship Theorem
+1. <span id="83">The Friendship Theorem<span>
 
     ```Isabelle
     theorem (in valid_unSimpGraph) friendship_thm:
@@ -960,11 +960,11 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
 
-84. Morley's Theorem
+1. <span id="84">Morley's Theorem<span>
 
     not formalised in Isabelle yet
 
-85. Divisibility by Three Rule
+1. <span id="85">Divisibility by Three Rule<span>
 
     ```Isabelle
     theorem three_divides_nat: "3 dvd n ⟷ 3 dvd sumdig n"
@@ -972,7 +972,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/ThreeDivides.html>
 
-86. Lebesgue Measure and Integration
+1. <span id="86">Lebesgue Measure and Integration<span>
 
     <https://isa-afp.org/entries/Integration.shtml>
 
@@ -988,7 +988,7 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Equivalence_Lebesgue_Henstock_Integration.thy.html>
 
-87. Desargues's Theorem
+1. <span id="87">Desargues's Theorem<span>
 
     ```Isabelle
     theorem desargues_3D:
@@ -998,7 +998,7 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Projective_Geometry.html>
 
-88. Derangements Formula
+1. <span id="88">Derangements Formula<span>
 
     ```Isabelle
     theorem derangements_formula:
@@ -1008,7 +1008,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Derangements.shtml>
 
-89. The Factor and Remainder Theorems
+1. <span id="89">The Factor and Remainder Theorems<span>
 
     ```Isabelle
     lemma long_div_theorem:
@@ -1024,7 +1024,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
 
-90. Stirling's Formula
+1. <span id="90">Stirling's Formula<span>
 
     The following gives the full asymptotic expansion of the complex log-Gamma function, and, derived from that, the first term of the asymptotic expansion of the complex Gamma function:
 
@@ -1060,7 +1060,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Gamma_Asymptotics.shtml>
 
 
-91. The Triangle Inequality
+1. <span id="91">The Triangle Inequality<span>
 
     ```Isabelle
     class ordered_ab_group_add_abs = ordered_ab_group_add + abs +
@@ -1080,11 +1080,11 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Groups.html>
 
-92. Pick's Theorem
+1. <span id="92">Pick's Theorem<span>
 
     not formalised in Isabelle yet
 
-93. The Birthday Problem
+1. <span id="93">The Birthday Problem<span>
 
     ```Isabelle
     lemma birthday_paradox:
@@ -1094,7 +1094,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html>
 
-94. The Law of Cosines
+1. <span id="94">The Law of Cosines<span>
 
     ```Isabelle
     lemma cosine_law_triangle:
@@ -1103,7 +1103,7 @@ update it, let me know.
 
     <https://isa-afp.org/entries/Triangle.shtml>
 
-95. Ptolemy's Theorem
+1. <span id="95">Ptolemy's Theorem<span>
 
     ```Isabelle
     theorem ptolemy:
@@ -1119,7 +1119,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Ptolemys_Theorem.shtml>
 
-96. Principle of Inclusion/Exclusion
+1. <span id="96">Principle of Inclusion/Exclusion<span>
 
     ```Isabelle
     lemma card_UNION:
@@ -1129,7 +1129,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
 
-97. Cramer's Rule
+1. <span id="97">Cramer's Rule<span>
 
     ```Isabelle
     lemma cramer:
@@ -1140,7 +1140,7 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Determinants.html>
 
-98. Bertrand's Postulate
+1. <span id="98">Bertrand's Postulate<span>
 
     ```Isabelle
     theorem bertrand: "n > 1 ⟹ ∃p∈{n<..<2*n}. prime p"
@@ -1148,7 +1148,7 @@ update it, let me know.
 
     <https://www.isa-afp.org/entries/Bertrands_Postulate.shtml>
 
-99. Buffon Needle Problem
+1. <span id="99">Buffon Needle Problem<span>
 
     ```Isabelle
     definition needle :: "real ⇒ real ⇒ real ⇒ real set" where
@@ -1176,7 +1176,7 @@ update it, let me know.
     ```
     <https://www.isa-afp.org/entries/Buffons_Needle.shtml>
 
-1. Descartes Rule of Signs
+1. <span id="100">Descartes Rule of Signs<span>
     ```Isabelle
     theorem descartes_sign_rule:
       fixes p :: "real poly"
@@ -1186,23 +1186,23 @@ update it, let me know.
     <https://isa-afp.org/entries/Descartes_Sign_Rule.shtml>
     
     
-1. Atiyah-Singer Index Theorem
+1. <span id="101">Atiyah-Singer Index Theorem<span>
 
     not formalised in Isabelle yet
     
-1. Baker's Theorem on Linear Forms in Logarithms
+1. <span id="102">Baker's Theorem on Linear Forms in Logarithms<span>
 
     not formalised in Isabelle yet
    
-1. Black-Scholes Formula
+1. <span id="103">Black-Scholes Formula<span>
 
     not formalised in Isabelle yet
     
-1. Borsuk-Ulam Theorem
+1. <span id="104">Borsuk-Ulam Theorem<span>
 
     not formalised in Isabelle yet
     
-1. Cauchy's Integral Theorem
+1. <span id="105">Cauchy's Integral Theorem<span>
 
     ```Isabelle
     proposition Cauchy_theorem_homotopic_paths:
@@ -1221,7 +1221,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Cauchy_Integral_Theorem.html>
   
   
-1. Cauchy's Residue Theorem
+1. <span id="106">Cauchy's Residue Theorem<span>
 
     ```Isabelle
     theorem Residue_theorem:
@@ -1238,11 +1238,11 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Residue_Theorem.html>
   
-1. Chen's theorem
+1. <span id="107">Chen's theorem<span>
 
     not formalised in Isabelle yet
     
-1. Every vector space is free
+1. <span id="108">Every vector space is free<span>
 
     ```isabelle
     lemma (in vector_space) basis_exists:
@@ -1251,23 +1251,23 @@ update it, let me know.
     
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Vector_Spaces.html>
     
-1. Classification of Finite Simple Groups
+1. <span id="109">Classification of Finite Simple Groups<span>
 
     not formalised in Isabelle yet
     
-1. Classification of semisimple Lie groups (Killing, Cartan, Dynkin)
+1. <span id="110">Classification of semisimple Lie groups (Killing, Cartan, Dynkin)<span>
 
     not formalised in Isabelle yet
     
-1. Sophie Germain's theorem
+1. <span id="111">Sophie Germain's theorem<span>
 
     not formalised in Isabelle yet
  
-1. Gödel's Completeness Theorem
+1. <span id="112">Gödel's Completeness Theorem<span>
 
     <https://www.isa-afp.org/entries/Completeness.html>
  
-1. Gödel's Second Incompleteness Theorem
+1. <span id="113">Gödel's Second Incompleteness Theorem<span>
 
     ```Isabelle
     theorem Goedel_II: "¬ ({} ⊢ Neg (PfP «Fls»))"
@@ -1275,19 +1275,19 @@ update it, let me know.
   
     <https://www.isa-afp.org/entries/Incompleteness.html>
 
-1. Green-Tao Theorem
+1. <span id="114">Green-Tao Theorem<span>
 
     not formalised in Isabelle yet
     
-1. Feit-Thompson Theorem
+1. <span id="115">Feit-Thompson Theorem<span>
 
     not formalised in Isabelle yet
     
-1. Fundamental Theorem of Galois Theory
+1. <span id="116">Fundamental Theorem of Galois Theory<span>
 
     not formalised in Isabelle yet
   
-1. Heine–Borel Theorem
+1. <span id="117">Heine–Borel Theorem<span>
 
     Heine–Borel is actually the definition of compactness in Isabelle/HOL in any topological space:
 
@@ -1310,7 +1310,7 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Topology_Euclidean_Space.html>
   
   
-1. Hessenberg's Theorem = "Pappus → Desargues"
+1. <span id="118">Hessenberg's Theorem = "Pappus → Desargues"<span>
 
     ```Isabelle
     theorem hessenberg_thereom:
@@ -1320,11 +1320,11 @@ update it, let me know.
     
     <https://www.isa-afp.org/entries/Projective_Geometry.html>
     
-1. Hilbert Basis Theorem
+1. <span id="119">Hilbert Basis Theorem<span>
 
     not formalised in Isabelle yet
   
-1. Hilbert Nullstellensatz
+1. <span id="120">Hilbert Nullstellensatz<span>
 
     ```Isabelle
     theorem strong_Nullstellensatz:
@@ -1335,11 +1335,11 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Nullstellensatz.html>
 
 
-1. Hilbert-Waring theorem
+1. <span id="121">Hilbert-Waring theorem<span>
 
     not formalised in Isabelle yet
     
-1. Invariance of Dimension
+1. <span id="122">Invariance of Dimension<span>
 
     ```Isabelle
     corollary invariance_of_dimension:
@@ -1352,11 +1352,11 @@ update it, let me know.
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Further_Topology.html>
 
 
-1. IP=PSPACE
+1. <span id="123">IP=PSPACE<span>
 
     not formalised in Isabelle yet
 
-1. Jordan Curve Theorem
+1. <span id="124">Jordan Curve Theorem<span>
 
     ```Isabelle
     corollary Jordan_inside_outside:
@@ -1378,27 +1378,27 @@ update it, let me know.
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Jordan_Curve.html>
 
-1. Kepler Conjecture
+1. <span id="125">Kepler Conjecture<span>
 
     not formalised in Isabelle yet
 
-1. Lie's work relating Algebras and Groups
-
-    not formalised in Isabelle yet
-    
-1. Nash's Theorem
+1. <span id="126">Lie's work relating Algebras and Groups<span>
 
     not formalised in Isabelle yet
     
-1. Perelman-Hamilton-Thurston theorem classifying compact 3-manifolds
+1. <span id="127">Nash's Theorem<span>
 
     not formalised in Isabelle yet
     
-1. Poincaré Conjecture
+1. <span id="128">Perelman-Hamilton-Thurston theorem classifying compact 3-manifolds<span>
+
+    not formalised in Isabelle yet
+    
+1. <span id="129">Poincaré Conjecture<span>
 
     not formalised in Isabelle yet
 
-1. Riemann Mapping Theorem
+1. <span id="130">Riemann Mapping Theorem<span>
 
     ```Isabelle
     theorem Riemann_mapping_theorem:
@@ -1406,13 +1406,13 @@ update it, let me know.
        S = {} ∨ S = UNIV ∨
        (∃f g. f holomorphic_on S ∧ g holomorphic_on ball 0 1 ∧
              (∀z ∈ S. f z ∈ ball 0 1 ∧ g(f z) = z) ∧
-             (∀z ∈ ball 0 1. g z ∈ S ∧ f(g z) = z))"
+             (∀z ∈ ball 0 1. <span id="1">g z ∈ S ∧ f(g z) = z))"<span>
     ```
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Complex_Analysis/Riemann_Mapping.html>
   
   
-1. Sorting takes Θ(N log N) steps
+1. <span id="131">Sorting takes Θ(N log N) steps<span>
 
     ```Isabelle
     datatype 'a sorter = Return "'a list" | Query 'a 'a "bool ⇒ 'a sorter"
@@ -1442,12 +1442,12 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Comparison_Sort_Lower_Bound.html>
   
   
-1. Stokes' Theorem
+1. <span id="132">Stokes' Theorem<span>
 
     not formalised in Isabelle yet
 
   
-1. Stone–Weierstraß Theorem
+1. <span id="133">Stone–Weierstraß Theorem<span>
   
     ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
@@ -1463,7 +1463,7 @@ update it, let me know.
   
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Weierstrass_Theorems.html>
   
-1. Thales' Theorem
+1. <span id="134">Thales' Theorem<span>
   
     ```Isabelle
     theorem thales:
@@ -1474,13 +1474,13 @@ update it, let me know.
   
     <https://www.isa-afp.org/entries/Triangle.html>
 
-1. Yoneda lemma
+1. <span id="135">Yoneda lemma<span>
 
     <https://www.isa-afp.org/entries/Category.html>
     <https://www.isa-afp.org/entries/Category2.html>
     <https://www.isa-afp.org/entries/Category3.html>
 
-1. ζ(-1) = -1 / 12
+1. <span id="136">ζ(-1) = -1 / 12<span>
   
     ```Isabelle
     theorem zeta_even_nat: 
