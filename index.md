@@ -256,20 +256,18 @@ update it, let me know.
 
     ```Isabelle
     corollary ctm_ZFC_imp_ctm_CH:
-		assumes
-			"M ≈ ω" "Transset(M)" "M ⊨ ZFC"
-		shows
-			"∃N.
-				M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅CH⋅} ∧
-				(∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
-    
-		corollary ctm_ZFC_imp_ctm_not_CH:
-		assumes
-			"M ≈ ω" "Transset(M)" "M ⊨ ZFC"
-		shows
-			"∃N.
-				M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅¬⋅CH⋅⋅} ∧
-				(∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
+    assumes
+      "M ≈ ω" "Transset(M)" "M ⊨ ZFC"
+    shows
+      "∃N. M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅CH⋅} ∧
+           (∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
+
+    corollary ctm_ZFC_imp_ctm_not_CH:
+    assumes
+      "M ≈ ω" "Transset(M)" "M ⊨ ZFC"
+    shows
+      "∃N. M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅¬⋅CH⋅⋅} ∧
+           (∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
     ```
 
 1. <span id="25">Schröder–Bernstein Theorem<span>
