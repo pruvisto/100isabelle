@@ -254,7 +254,23 @@ update it, let me know.
 
 24. The Undecidability of the Continuum Hypothesis
 
-    not formalised in Isabelle yet
+    ```Isabelle
+    corollary ctm_ZFC_imp_ctm_CH:
+		assumes
+			"M ≈ ω" "Transset(M)" "M ⊨ ZFC"
+		shows
+			"∃N.
+				M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅CH⋅} ∧
+				(∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
+
+		corollary ctm_ZFC_imp_ctm_not_CH:
+		assumes
+			"M ≈ ω" "Transset(M)" "M ⊨ ZFC"
+		shows
+			"∃N.
+				M ⊆ N ∧ N ≈ ω ∧ Transset(N) ∧ N ⊨ ZFC ∪ {⋅¬⋅CH⋅⋅} ∧
+				(∀α. Ord(α) ⟶ (α ∈ M ⟷ α ∈ N))"
+    ```
 
 25. Schröder–Bernstein Theorem
 
@@ -1436,7 +1452,7 @@ update it, let me know.
     ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
       assumes f: "continuous_on S f"
-      shows "∃F∈UNIV → R. uniform_limit S F f sequentially 
+      shows "∃F∈UNIV → R. uniform_limit S F f sequentially"
       
     proposition Stone_Weierstrass_uniform_limit:
       fixes f :: "'a::euclidean_space ⇒ 'b::euclidean_space"
