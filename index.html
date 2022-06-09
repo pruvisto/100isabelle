@@ -20,16 +20,15 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"The Top 100 Theorems in Isabelle","name":"The Top 100 Theorems in Isabelle","url":"/100isabelle/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-<!-- Setup Google Analytics -->
-
-
-
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/100isabelle/favicon.ico" -->
-
-<!-- end custom head snippets -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
   </head>
 
@@ -50,16 +49,11 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>The following are the theorems from <a href="http://www.cs.ru.nl/~freek/100/">this list</a>
+        <p>The following are the theorems from <a href="https://www.cs.ru.nl/~freek/100/">this list</a>
 proved so far in the <a href="https://isabelle.in.tum.de">Isabelle</a> proof assistant.</p>
 
-<p>If you have proved additional ones or know of any, please
-<a href="mailto:gerwin.klein@data61.csiro.au">send me email</a> so I can add them here.</p>
-
-<p>If the theorem is not part of the Isabelle distribution, the entry will usually contain a
-link to the repository that does. The list does not automatically track the most recent
-version of each theorem. If you find one that that is out of date and would like me to
-update it, let me know.</p>
+<p>If you have proved additional ones (or know of any) or have any other corrections, please make a <a href="https://github.com/pruvisto/100isabelle/pulls">pull request</a> or
+<a href="https://pruvisto.org">contact me in some other fashion</a>.</p>
 
 <ol>
   <li><span id="1">Square Root of 2 is Irrational<span>
@@ -92,9 +86,11 @@ update it, let me know.</p>
 
     <p><a href="https://www.isa-afp.org/entries/Triangle.html">https://www.isa-afp.org/entries/Triangle.html</a></p>
   </li>
-  <li><span id="5">Prime Number Theorem<span>
- Avigad <em>et al.</em> formalised the elementary Erdős–Selberg proof:
-</span></span>    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="k">definition</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"nat ⇒ real"</span><span class="w">
+  <li>
+    <p><span id="5">Prime Number Theorem<span></span></span></p>
+
+    <p>Avigad <em>et al.</em> formalised the elementary Erdős–Selberg proof:</p>
+    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="k">definition</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"nat ⇒ real"</span><span class="w">
    </span><span class="kp">where</span><span class="w"> </span><span class="s">"pi x = real (card {y::nat. y ≤ x ∧ prime y})"</span><span class="w">
     
  </span><span class="kn">lemma</span><span class="w"> </span><span class="n">PrimeNumberTheorem</span><span class="o">:</span><span class="w"> </span><span class="s">"(λx. pi x * ln (real x) / real x) ⇢ 1"</span><span class="w">
@@ -108,7 +104,9 @@ update it, let me know.</p>
     
  </span><span class="kn">corollary</span><span class="w"> </span><span class="n">prime_number_theorem</span><span class="o">:</span><span class="w"> </span><span class="s">"primes_pi ∼[at_top] (λx. x / ln x)"</span><span class="w">
 </span></code></pre></div>    </div>
-    <p><a href="https://www.isa-afp.org/entries/Prime_Number_Theorem.html">https://www.isa-afp.org/entries/Prime_Number_Theorem.html</a></p>
+
+    <p>Many alternative formulations of the PNT are also available.
+ <a href="https://www.isa-afp.org/entries/Prime_Number_Theorem.html">https://www.isa-afp.org/entries/Prime_Number_Theorem.html</a></p>
   </li>
   <li>
     <p><span id="6">Gödel’s Incompleteness Theorem<span></span></span></p>
@@ -186,7 +184,7 @@ update it, let me know.</p>
     <p>not formalised in Isabelle yet</p>
   </li>
   <li>
-    <p><span id="14">Euler’s Summation of 1 + (1/2)^2 + (1/3)^2 + ….<span></span></span></p>
+    <p><span id="14">Euler’s Summation of $1 + (\frac{1}{2})^2 + (\frac{1}{3})^2 + \ldots$<span></span></span></p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">inverse_squares_sums</span><span class="o">:</span><span class="w"> </span><span class="s">"(λn. 1 / (n + 1)²) sums (pi² / 6)"</span><span class="w">
 </span></code></pre></div>    </div>
@@ -359,7 +357,9 @@ update it, let me know.</p>
   <li>
     <p><span id="30">The Ballot Problem<span></span></span></p>
 
-    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="s">"valid_countings a b = (if a ≤ b then (if b = 0 then 1 else 0) else (a - b) / (a + b) * all_countings a b)"</span><span class="w">
+    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="s">"valid_countings a b =
+          (if a ≤ b then (if b = 0 then 1 else 0) 
+           else (a - b) / (a + b) * all_countings a b)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html</a></p>
@@ -430,24 +430,23 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">cubic</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="n">a0</span><span class="o">:</span><span class="w"> </span><span class="s">"a ≠ 0"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"
-   let p = (3 * a * c - b^2) / (9 * a^2) ;
-       q = (9 * a * b * c - 2 * b^3 - 27 * a^2 * d) / (54 * a^3);
-       s = csqrt(q^2 + p^3);
-       s1 = (if p = 0 then ccbrt(2 * q) else ccbrt(q + s));
-       s2 = -s1 * (1 + ii * csqrt 3) / 2;
-       s3 = -s1 * (1 - ii * csqrt 3) / 2
-   in if p = 0 then
-        a * x^3 + b * x^2 + c * x + d = 0 ⟷
-            x = s1 - b / (3 * a) ∨
-            x = s2 - b / (3 * a) ∨
-            x = s3 - b / (3 * a)
-       else
-         s1 ≠ 0 ∧
-         (a * x^3 + b * x^2 + c * x + d = 0 ⟷
-             x = s1 - p / s1 - b / (3 * a) ∨
-             x = s2 - p / s2 - b / (3 * a) ∨
-             x = s3 - p / s3 - b / (3 * a))"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"let p = (3 * a * c - b^2) / (9 * a^2) ;
+              q = (9 * a * b * c - 2 * b^3 - 27 * a^2 * d) / (54 * a^3);
+              s = csqrt (q^2 + p^3);
+              s1 = (if p = 0 then ccbrt (2 * q) else ccbrt (q + s));
+              s2 = -s1 * (1 + ii * csqrt 3) / 2;
+              s3 = -s1 * (1 - ii * csqrt 3) / 2
+            in if p = 0 then
+                 a * x^3 + b * x^2 + c * x + d = 0 ⟷
+                     x = s1 - b / (3 * a) ∨
+                     x = s2 - b / (3 * a) ∨
+                     x = s3 - b / (3 * a)
+                else
+                  s1 ≠ 0 ∧
+                  (a * x^3 + b * x^2 + c * x + d = 0 ⟷
+                      x = s1 - p / s1 - b / (3 * a) ∨
+                      x = s2 - p / s2 - b / (3 * a) ∨
+                      x = s3 - p / s3 - b / (3 * a))"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html</a></p>
@@ -458,12 +457,12 @@ update it, let me know.</p>
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">CauchysMeanTheorem</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"real list"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"pos z"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"gmean z ≤ mean z"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"gmean z ≤ mean z"</span><span class="w">
       
  </span><span class="kn">theorem</span><span class="w"> </span><span class="n">CauchysMeanTheorem_Eq</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"real list"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"pos z"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"gmean z = mean z ⟷ het z = 0"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"gmean z = mean z ⟷ het z = 0"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isa-afp.org/entries/Cauchy.shtml">https://isa-afp.org/entries/Cauchy.shtml</a></p>
@@ -477,7 +476,7 @@ update it, let me know.</p>
    </span><span class="kp">obtains</span><span class="w"> </span><span class="s">"x₀"</span><span class="w"> </span><span class="s">"y₀"</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">nat</span><span class="w">
    </span><span class="kp">where</span><span class="w">   </span><span class="s">"∀(x::int) (y::int).
               x² - D * y² = 1 ⟷
-             (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x₀ + sqrt D * y₀) ^ n)"</span><span class="w">
+              (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x₀ + sqrt D * y₀) ^ n)"</span><span class="w">
 
  </span><span class="kn">corollary</span><span class="w"> </span><span class="n">pell_solutions_infinite</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">nat</span><span class="w">
@@ -493,7 +492,7 @@ update it, let me know.</p>
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">minkowski</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"(real ^ 'n) set"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"convex B"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="n">symmetric</span><span class="o">:</span><span class="w"> </span><span class="s">"uminus ` B ⊆ B"</span><span class="w">
-   </span><span class="kp">assumes</span><span class="w"> </span><span class="n">meas_B</span><span class="w"> </span><span class="o">[</span><span class="n">measurable</span><span class="o">]:</span><span class="w"> </span><span class="s">"B ∈ sets lebesgue"</span><span class="w">
+   </span><span class="kp">assumes</span><span class="w"> </span><span class="n">meas_B</span><span class="o">:</span><span class="w"> </span><span class="s">"B ∈ sets lebesgue"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="n">measure_B</span><span class="o">:</span><span class="w"> </span><span class="s">"emeasure lebesgue B &gt; 2 ^ CARD('n)"</span><span class="w">
    </span><span class="kp">obtains</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kp">where</span><span class="w"> </span><span class="s">"x ∈ B"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"x ≠ 0"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"⋀i. x $ i ∈ ℤ"</span><span class="w">
 </span></code></pre></div>    </div>
@@ -543,14 +542,22 @@ update it, let me know.</p>
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"'a :: comm_ring_1"</span><span class="w">
    </span><span class="kp">shows</span><span class="w"> </span><span class="s">"(a + b) ^ n = (∑k=0..n. of_nat (n choose k) * a ^ k * b ^ (n - k))"</span><span class="w">
 </span></code></pre></div>    </div>
-
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html">https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html</a></p>
+
+    <p>The generalised form where the exponent is not necessarily an integer is also available:</p>
+    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">gen_binomial_complex</span><span class="o">:</span><span class="w">
+ </span><span class="kp">fixes</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">complex</span><span class="w">
+ </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"norm z &lt; 1"</span><span class="w">
+ </span><span class="kp">shows</span><span class="w">   </span><span class="s">"(λn. (a gchoose n) * z^n) sums (1 + z) powr a"</span><span class="w">
+</span></code></pre></div>    </div>
+    <p><a href="https://isabelle.in.tum.de/library/HOL/HOL-Analysis/Generalised_Binomial_Theorem.html">https://isabelle.in.tum.de/library/HOL/HOL-Analysis/Generalised_Binomial_Theorem.html</a></p>
   </li>
   <li>
     <p><span id="45">The Partition Theorem<span></span></span></p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">Euler_partition_theorem</span><span class="o">:</span><span class="w">
-   </span><span class="s">"card {p. p partitions n ∧ (∀i. p i ≤ 1)} = card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"</span><span class="w">
+   </span><span class="s">"card {p. p partitions n ∧ (∀i. p i ≤ 1)} =
+    card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isa-afp.org/entries/Euler_Partition.shtml">https://isa-afp.org/entries/Euler_Partition.shtml</a></p>
@@ -757,7 +764,7 @@ update it, let me know.</p>
   <li>
     <p><span id="63">Cantor’s Theorem<span></span></span></p>
 
-    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">Cantors_paradox</span><span class="o">:</span><span class="w"> </span><span class="n">∄f.</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="sx">` A = Pow A
+    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">Cantors_paradox</span><span class="o">:</span><span class="w"> </span><span class="s">"∄f. f ` A = Pow A"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html">https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html</a></p>
@@ -826,8 +833,20 @@ update it, let me know.</p>
    </span><span class="kp">and</span><span class="w"> </span><span class="n">gcd_dvd2</span><span class="o">:</span><span class="w">     </span><span class="s">"gcd a b dvd b"</span><span class="w">
    </span><span class="kp">and</span><span class="w"> </span><span class="n">gcd_greatest</span><span class="o">:</span><span class="w"> </span><span class="s">"c dvd a ⟹ c dvd b ⟹ c dvd gcd a b"</span><span class="w">
 </span></code></pre></div>    </div>
-
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html">https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html</a></p>
+
+    <p>For Euclidean rings (such as naturals, integers, and polynomials over a field) the following executable algorithm is also provided and proven equivalent to the above:</p>
+    <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="k">context</span><span class="w"> </span><span class="n">normalization_euclidean_semiring</span><span class="w">
+ </span><span class="k">begin</span><span class="w">
+    
+ </span><span class="n">qualified</span><span class="w"> </span><span class="kn">function</span><span class="w"> </span><span class="n">gcd</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"'a ⇒ 'a ⇒ 'a"</span><span class="w">
+   </span><span class="kp">where</span><span class="w"> </span><span class="s">"gcd a b = (if b = 0 then normalize a else gcd b (a mod b))"</span><span class="w">
+    
+ </span><span class="k">end</span><span class="w">
+</span></code></pre></div>    </div>
+    <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html</a></p>
+
+    <p>Similar algorithms are also provided for polynomials in more general settings.</p>
   </li>
   <li>
     <p><span id="70">Perfect Number Theorem<span></span></span></p>
@@ -864,8 +883,8 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">Erdoes_Szekeres</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"_ ⇒ 'a::linorder"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (op ≤) S) ∨
-          (∃S. S ⊆ {0..m * n} ∧ card S = n + 1 ∧ mono_on f (op ≥) S)"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (≤) S) ∨
+          (∃S. S ⊆ {0..m * n} ∧ card S = n + 1 ∧ mono_on f (≥) S)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html</a></p>
@@ -889,14 +908,14 @@ update it, let me know.</p>
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"a &lt; b"</span><span class="w">
        </span><span class="kp">and</span><span class="w"> </span><span class="s">"∀x∈{a..b}. isCont f x"</span><span class="w">
        </span><span class="kp">and</span><span class="w"> </span><span class="s">"∀x∈{a&lt;..&lt;b}. f differentiable (at x)"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"∃l z. z ∈ {a&lt;..&lt;b} ∧ (f has_real_derivative l) (at z) ∧
-              f b - f a = (b - a) * l"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"∃l z. z ∈ {a&lt;..&lt;b} ∧ (f has_real_derivative l) (at z) ∧
+                  f b - f a = (b - a) * l"</span><span class="w">
 
  </span><span class="kn">lemma</span><span class="w"> </span><span class="n">MVT2</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="n">f'</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"real ⇒ real"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"a &lt; b"</span><span class="w">
        </span><span class="kp">and</span><span class="w"> </span><span class="s">"∀x∈{a..b}. (f has_real_derivative f' x) (at x)"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"∃z. z ∈ {a&lt;..&lt;b} ∧ f b - f a = (b - a) * f' z"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"∃z. z ∈ {a&lt;..&lt;b} ∧ f b - f a = (b - a) * f' z"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html">https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html</a></p>
@@ -907,7 +926,7 @@ update it, let me know.</p>
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">corollary</span><span class="w"> </span><span class="n">Fourier_Fejer_Cesaro_summable_simple</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="s">"continuous_on UNIV f"</span><span class="w">
        </span><span class="kp">and</span><span class="w"> </span><span class="n">periodic</span><span class="o">:</span><span class="w"> </span><span class="s">"⋀x. f (x + 2*pi) = f x"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"(λn. (∑m&lt;n. ∑k≤2*m. Fourier_coefficient f k * trigonometric_set k x) / n) ⇢ f x"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"(λn. (∑m&lt;n. ∑k≤2*m. Fourier_coefficient f k * trigonometric_set k x) / n) ⇢ f x"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://www.isa-afp.org/entries/Fourier.html">https://www.isa-afp.org/entries/Fourier.html</a></p>
@@ -935,7 +954,7 @@ update it, let me know.</p>
     <p>An alternative version is available in the standard library:</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">Cauchy_Schwarz_ineq2</span><span class="o">:</span><span class="w">
-   </span><span class="s">"¦x ∙ y¦ ≤ norm x * norm y"</span><span class="w">
+   </span><span class="s">"¦x ∙ (y :: real_inner)¦ ≤ norm x * norm y"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html</a></p>
@@ -999,7 +1018,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="o">(</span><span class="kp">in</span><span class="w"> </span><span class="n">valid_unSimpGraph</span><span class="o">)</span><span class="w"> </span><span class="n">friendship_thm</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"finite V"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"∃v. ∀n∈V. n≠v ⟶ adjacent v n"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"∃v. ∀n∈V. n≠v ⟶ adjacent v n"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isa-afp.org/entries/Koenigsberg_Friendship.shtml">https://isa-afp.org/entries/Koenigsberg_Friendship.shtml</a></p>
@@ -1039,7 +1058,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">desargues_3D</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"desargues_config_3D A B C A' B' C' P α β γ"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"rk {α, β, γ} ≤ 2"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"rk {α, β, γ} ≤ 2"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://www.isa-afp.org/entries/Projective_Geometry.html">https://www.isa-afp.org/entries/Projective_Geometry.html</a></p>
@@ -1049,7 +1068,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">derangements_formula</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"n ≠ 0"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"finite S"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"card S = n"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"card (derangements S) = round (fact n / exp 1)"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"card (derangements S) = round (fact n / exp 1)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isa-afp.org/entries/Derangements.shtml">https://isa-afp.org/entries/Derangements.shtml</a></p>
@@ -1060,8 +1079,8 @@ update it, let me know.</p>
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">long_div_theorem</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"g ∈ carrier P"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"f ∈ carrier P"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"g ≠ 𝟬⇘P⇙"</span><span class="w">
    </span><span class="kp">shows</span><span class="w"> </span><span class="s">"∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
-         (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
-         (r = 𝟬⇘P⇙ | deg R r &lt; deg R g)"</span><span class="w">
+          (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
+          (r = 𝟬⇘P⇙ | deg R r &lt; deg R g)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html</a></p>
@@ -1133,7 +1152,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">birthday_paradox</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"card S = 23"</span><span class="w"> </span><span class="s">"card T = 365"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html">https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html</a></p>
@@ -1168,7 +1187,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">lemma</span><span class="w"> </span><span class="n">card_UNION</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"finite A"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"∀k ∈ A. finite k"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html">https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html</a></p>
@@ -1366,7 +1385,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">hessenberg_thereom</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"is_pappus"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"desargues_prop"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"desargues_prop"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://www.isa-afp.org/entries/Projective_Geometry.html">https://www.isa-afp.org/entries/Projective_Geometry.html</a></p>
@@ -1381,7 +1400,7 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="n">strong_Nullstellensatz</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="s">"finite X"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"F ⊆ P[X]"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"</span><span class="w">
 </span></code></pre></div>    </div>
 
     <p><a href="https://www.isa-afp.org/entries/Nullstellensatz.html">https://www.isa-afp.org/entries/Nullstellensatz.html</a></p>
@@ -1507,12 +1526,12 @@ update it, let me know.</p>
 
     <div class="language-Isabelle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="kn">theorem</span><span class="w"> </span><span class="o">(</span><span class="kp">in</span><span class="w"> </span><span class="n">function_ring_on</span><span class="o">)</span><span class="w"> </span><span class="n">Stone_Weierstrass</span><span class="o">:</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="s">"continuous_on S f"</span><span class="w">
-   </span><span class="kp">shows</span><span class="w"> </span><span class="s">"∃F∈UNIV → R. uniform_limit S F f sequentially"</span><span class="w">
+   </span><span class="kp">shows</span><span class="w">   </span><span class="s">"∃F∈UNIV → R. uniform_limit S F f sequentially"</span><span class="w">
       
  </span><span class="n">proposition</span><span class="w"> </span><span class="n">Stone_Weierstrass_uniform_limit</span><span class="o">:</span><span class="w">
    </span><span class="kp">fixes</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">"'a::euclidean_space ⇒ 'b::euclidean_space"</span><span class="w">
    </span><span class="kp">assumes</span><span class="w"> </span><span class="n">S</span><span class="o">:</span><span class="w"> </span><span class="s">"compact S"</span><span class="w">
-     </span><span class="kp">and</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="s">"continuous_on S f"</span><span class="w">
+       </span><span class="kp">and</span><span class="w"> </span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="s">"continuous_on S f"</span><span class="w">
    </span><span class="kp">obtains</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="kp">where</span><span class="w"> </span><span class="s">"uniform_limit S g f sequentially"</span><span class="w"> </span><span class="kp">and</span><span class="w"> </span><span class="s">"⋀n. polynomial_function (g n)"</span><span class="w">
 </span></code></pre></div>    </div>
 
@@ -1532,9 +1551,11 @@ update it, let me know.</p>
   <li>
     <p><span id="135">Yoneda lemma<span></span></span></p>
 
-    <p><a href="https://www.isa-afp.org/entries/Category.html">https://www.isa-afp.org/entries/Category.html</a>
- <a href="https://www.isa-afp.org/entries/Category2.html">https://www.isa-afp.org/entries/Category2.html</a>
- <a href="https://www.isa-afp.org/entries/Category3.html">https://www.isa-afp.org/entries/Category3.html</a></p>
+    <p><a href="https://www.isa-afp.org/entries/Category.html">https://www.isa-afp.org/entries/Category.html</a></p>
+
+    <p><a href="https://www.isa-afp.org/entries/Category2.html">https://www.isa-afp.org/entries/Category2.html</a></p>
+
+    <p><a href="https://www.isa-afp.org/entries/Category3.html">https://www.isa-afp.org/entries/Category3.html</a></p>
   </li>
   <li>
     <p><span id="136">ζ(-1) = -1 / 12<span></span></span></p>
@@ -1563,3 +1584,4 @@ update it, let me know.</p>
     </div>
   </body>
 </html>
+
