@@ -1,14 +1,8 @@
-The following are the theorems from [this list](http://www.cs.ru.nl/~freek/100/)
+The following are the theorems from [this list](https://www.cs.ru.nl/~freek/100/)
 proved so far in the [Isabelle](https://isabelle.in.tum.de) proof assistant.
 
-If you have proved additional ones or know of any, please
-[send me email](mailto:gerwin.klein@data61.csiro.au) so I can add them here.
-
-If the theorem is not part of the Isabelle distribution, the entry will usually contain a
-link to the repository that does. The list does not automatically track the most recent
-version of each theorem. If you find one that that is out of date and would like me to
-update it, let me know.
-
+If you have proved additional ones (or know of any) or have any other corrections, please make a [pull request](https://github.com/pruvisto/100isabelle/pulls) or
+[contact me in some other fashion](https://pruvisto.org).
 
 1. <span id="1">Square Root of 2 is Irrational<span>
     ```Isabelle
@@ -45,6 +39,7 @@ update it, let me know.
     <https://www.isa-afp.org/entries/Triangle.html>
 
 1. <span id="5">Prime Number Theorem<span>
+
     Avigad *et al.* formalised the elementary Erdős–Selberg proof:
     ```Isabelle
     definition pi :: "nat ⇒ real"
@@ -62,6 +57,8 @@ update it, let me know.
     
     corollary prime_number_theorem: "primes_pi ∼[at_top] (λx. x / ln x)"
     ```
+    
+    Many alternative formulations of the PNT are also available.
     <https://www.isa-afp.org/entries/Prime_Number_Theorem.html>
 
 1. <span id="6">Gödel's Incompleteness Theorem<span>
@@ -139,7 +136,7 @@ update it, let me know.
 
     not formalised in Isabelle yet
 
-1. <span id="14">Euler's Summation of 1 + (1/2)^2 + (1/3)^2 + ....<span>
+1. <span id="14">Euler's Summation of $1 + (\frac{1}{2})^2 + (\frac{1}{3})^2 + \ldots$<span>
 
     ```Isabelle
     theorem inverse_squares_sums: "(λn. 1 / (n + 1)²) sums (pi² / 6)"
@@ -313,7 +310,9 @@ update it, let me know.
 1. <span id="30">The Ballot Problem<span>
 
     ```Isabelle
-    lemma "valid_countings a b = (if a ≤ b then (if b = 0 then 1 else 0) else (a - b) / (a + b) * all_countings a b)"
+    lemma "valid_countings a b =
+             (if a ≤ b then (if b = 0 then 1 else 0) 
+              else (a - b) / (a + b) * all_countings a b)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Ballot.html>
@@ -382,24 +381,23 @@ update it, let me know.
     ```Isabelle
     lemma cubic:
       assumes a0: "a ≠ 0"
-      shows "
-      let p = (3 * a * c - b^2) / (9 * a^2) ;
-          q = (9 * a * b * c - 2 * b^3 - 27 * a^2 * d) / (54 * a^3);
-          s = csqrt(q^2 + p^3);
-          s1 = (if p = 0 then ccbrt(2 * q) else ccbrt(q + s));
-          s2 = -s1 * (1 + ii * csqrt 3) / 2;
-          s3 = -s1 * (1 - ii * csqrt 3) / 2
-      in if p = 0 then
-           a * x^3 + b * x^2 + c * x + d = 0 ⟷
-               x = s1 - b / (3 * a) ∨
-               x = s2 - b / (3 * a) ∨
-               x = s3 - b / (3 * a)
-          else
-            s1 ≠ 0 ∧
-            (a * x^3 + b * x^2 + c * x + d = 0 ⟷
-                x = s1 - p / s1 - b / (3 * a) ∨
-                x = s2 - p / s2 - b / (3 * a) ∨
-                x = s3 - p / s3 - b / (3 * a))"
+      shows "let p = (3 * a * c - b^2) / (9 * a^2) ;
+                 q = (9 * a * b * c - 2 * b^3 - 27 * a^2 * d) / (54 * a^3);
+                 s = csqrt (q^2 + p^3);
+                 s1 = (if p = 0 then ccbrt (2 * q) else ccbrt (q + s));
+                 s2 = -s1 * (1 + ii * csqrt 3) / 2;
+                 s3 = -s1 * (1 - ii * csqrt 3) / 2
+               in if p = 0 then
+                    a * x^3 + b * x^2 + c * x + d = 0 ⟷
+                        x = s1 - b / (3 * a) ∨
+                        x = s2 - b / (3 * a) ∨
+                        x = s3 - b / (3 * a)
+                   else
+                     s1 ≠ 0 ∧
+                     (a * x^3 + b * x^2 + c * x + d = 0 ⟷
+                         x = s1 - p / s1 - b / (3 * a) ∨
+                         x = s2 - p / s2 - b / (3 * a) ∨
+                         x = s3 - p / s3 - b / (3 * a))"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Cubic_Quartic.html>
@@ -410,12 +408,12 @@ update it, let me know.
     theorem CauchysMeanTheorem:
       fixes z :: "real list"
       assumes "pos z"
-      shows "gmean z ≤ mean z"
+      shows   "gmean z ≤ mean z"
       
     theorem CauchysMeanTheorem_Eq:
       fixes z :: "real list"
       assumes "pos z"
-      shows "gmean z = mean z ⟷ het z = 0"
+      shows   "gmean z = mean z ⟷ het z = 0"
     ```
 
     <https://isa-afp.org/entries/Cauchy.shtml>
@@ -429,7 +427,7 @@ update it, let me know.
       obtains "x₀" "y₀" :: nat
       where   "∀(x::int) (y::int).
                  x² - D * y² = 1 ⟷
-                (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x₀ + sqrt D * y₀) ^ n)"
+                 (∃n::nat. nat ¦x¦ + sqrt D * nat ¦y¦ = (x₀ + sqrt D * y₀) ^ n)"
 
     corollary pell_solutions_infinite:
       fixes D :: nat
@@ -445,7 +443,7 @@ update it, let me know.
     theorem minkowski:
       fixes B :: "(real ^ 'n) set"
       assumes "convex B" and symmetric: "uminus ` B ⊆ B"
-      assumes meas_B [measurable]: "B ∈ sets lebesgue"
+      assumes meas_B: "B ∈ sets lebesgue"
       assumes measure_B: "emeasure lebesgue B > 2 ^ CARD('n)"
       obtains x where "x ∈ B" and "x ≠ 0" and "⋀i. x $ i ∈ ℤ"
     ```
@@ -495,14 +493,24 @@ update it, let me know.
       fixes a b :: "'a :: comm_ring_1"
       shows "(a + b) ^ n = (∑k=0..n. of_nat (n choose k) * a ^ k * b ^ (n - k))"
     ```
-
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
+    
+    The generalised form where the exponent is not necessarily an integer is also available:
+    ```Isabelle
+    theorem gen_binomial_complex:
+    fixes z :: complex
+    assumes "norm z < 1"
+    shows   "(λn. (a gchoose n) * z^n) sums (1 + z) powr a"
+    ```
+    <https://isabelle.in.tum.de/library/HOL/HOL-Analysis/Generalised_Binomial_Theorem.html>
+
 
 1. <span id="45">The Partition Theorem<span>
 
     ```Isabelle
     theorem Euler_partition_theorem:
-      "card {p. p partitions n ∧ (∀i. p i ≤ 1)} = card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"
+      "card {p. p partitions n ∧ (∀i. p i ≤ 1)} =
+       card {p. p partitions n ∧ (∀i. p i ≠ 0 ⟶ odd i)}"
     ```
 
     <https://isa-afp.org/entries/Euler_Partition.shtml>
@@ -707,7 +715,7 @@ update it, let me know.
 1. <span id="63">Cantor's Theorem<span>
 
     ```Isabelle
-    lemma Cantors_paradox: ∄f. f ` A = Pow A
+    lemma Cantors_paradox: "∄f. f ` A = Pow A"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Fun.html>
@@ -776,8 +784,21 @@ update it, let me know.
       and gcd_dvd2:     "gcd a b dvd b"
       and gcd_greatest: "c dvd a ⟹ c dvd b ⟹ c dvd gcd a b"
     ```
-
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/GCD.html>
+    
+    For Euclidean rings (such as naturals, integers, and polynomials over a field) the following executable algorithm is also provided and proven equivalent to the above:
+    ```Isabelle
+    context normalization_euclidean_semiring
+    begin
+    
+    qualified function gcd :: "'a ⇒ 'a ⇒ 'a"
+      where "gcd a b = (if b = 0 then normalize a else gcd b (a mod b))"
+    
+    end
+    ```
+    <https://isabelle.in.tum.de/dist/library/HOL/HOL-Computational_Algebra/Euclidean_Algorithm.html>
+    
+    Similar algorithms are also provided for polynomials in more general settings.
 
 1. <span id="70">Perfect Number Theorem<span>
 
@@ -814,8 +835,8 @@ update it, let me know.
     ```Isabelle
     lemma Erdoes_Szekeres:
       fixes f :: "_ ⇒ 'a::linorder"
-      shows "(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (op ≤) S) ∨
-             (∃S. S ⊆ {0..m * n} ∧ card S = n + 1 ∧ mono_on f (op ≥) S)"
+      shows "(∃S. S ⊆ {0..m * n} ∧ card S = m + 1 ∧ mono_on f (≤) S) ∨
+             (∃S. S ⊆ {0..m * n} ∧ card S = n + 1 ∧ mono_on f (≥) S)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Erdoes_Szekeres.html>
@@ -840,14 +861,14 @@ update it, let me know.
       assumes "a < b"
           and "∀x∈{a..b}. isCont f x"
           and "∀x∈{a<..<b}. f differentiable (at x)"
-      shows "∃l z. z ∈ {a<..<b} ∧ (f has_real_derivative l) (at z) ∧
-                 f b - f a = (b - a) * l"
+      shows   "∃l z. z ∈ {a<..<b} ∧ (f has_real_derivative l) (at z) ∧
+                     f b - f a = (b - a) * l"
 
     lemma MVT2:
       fixes a b :: real and f f' :: "real ⇒ real"
       assumes "a < b"
           and "∀x∈{a..b}. (f has_real_derivative f' x) (at x)"
-      shows "∃z. z ∈ {a<..<b} ∧ f b - f a = (b - a) * f' z"
+      shows   "∃z. z ∈ {a<..<b} ∧ f b - f a = (b - a) * f' z"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Deriv.html>
@@ -858,7 +879,7 @@ update it, let me know.
     corollary Fourier_Fejer_Cesaro_summable_simple:
       assumes f: "continuous_on UNIV f"
           and periodic: "⋀x. f (x + 2*pi) = f x"
-      shows "(λn. (∑m<n. ∑k≤2*m. Fourier_coefficient f k * trigonometric_set k x) / n) ⇢ f x"
+      shows   "(λn. (∑m<n. ∑k≤2*m. Fourier_coefficient f k * trigonometric_set k x) / n) ⇢ f x"
     ```
     
     <https://www.isa-afp.org/entries/Fourier.html>
@@ -887,7 +908,7 @@ update it, let me know.
 
     ```Isabelle
     lemma Cauchy_Schwarz_ineq2:
-      "¦x ∙ y¦ ≤ norm x * norm y"
+      "¦x ∙ (y :: real_inner)¦ ≤ norm x * norm y"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Analysis/Inner_Product.html>
@@ -953,7 +974,7 @@ update it, let me know.
     ```Isabelle
     theorem (in valid_unSimpGraph) friendship_thm:
       assumes "⋀v u. v∈V ⟹ u∈V ⟹ v≠u ⟹ ∃! n. adjacent v n ∧ adjacent u n" and "finite V"
-      shows "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
+      shows   "∃v. ∀n∈V. n≠v ⟶ adjacent v n"
     ```
 
     <https://isa-afp.org/entries/Koenigsberg_Friendship.shtml>
@@ -991,7 +1012,7 @@ update it, let me know.
     ```Isabelle
     theorem desargues_3D:
       assumes "desargues_config_3D A B C A' B' C' P α β γ"
-      shows "rk {α, β, γ} ≤ 2"
+      shows   "rk {α, β, γ} ≤ 2"
     ```
     
     <https://www.isa-afp.org/entries/Projective_Geometry.html>
@@ -1001,7 +1022,7 @@ update it, let me know.
     ```Isabelle
     theorem derangements_formula:
       assumes "n ≠ 0" and "finite S" and "card S = n"
-      shows "card (derangements S) = round (fact n / exp 1)"
+      shows   "card (derangements S) = round (fact n / exp 1)"
     ```
 
     <https://isa-afp.org/entries/Derangements.shtml>
@@ -1012,8 +1033,8 @@ update it, let me know.
     lemma long_div_theorem:
       assumes "g ∈ carrier P" and "f ∈ carrier P" and "g ≠ 𝟬⇘P⇙"
       shows "∃q r (k::nat). (q ∈ carrier P) ∧ (r ∈ carrier P) ∧
-            (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
-            (r = 𝟬⇘P⇙ | deg R r < deg R g)"
+             (lcoeff g)(^)⇘R⇙k ⊙⇘P⇙ f = g ⊗⇘P⇙ q ⊕⇘P⇙ r ∧
+             (r = 𝟬⇘P⇙ | deg R r < deg R g)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-Algebra/UnivPoly.html>
@@ -1087,7 +1108,7 @@ update it, let me know.
     ```Isabelle
     lemma birthday_paradox:
       assumes "card S = 23" "card T = 365"
-      shows "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
+      shows   "2 * card {f ∈ S→⇩E S T. ¬ inj_on f S} ≥ card (S →⇩E T)"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL-ex/Birthday_Paradox.html>
@@ -1122,7 +1143,7 @@ update it, let me know.
     ```Isabelle
     lemma card_UNION:
       assumes "finite A" and "∀k ∈ A. finite k"
-      shows "card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"
+      shows   "card (⋃A) = nat (∑I | I ⊆ A ∧ I ≠ {}. (- 1) ^ (card I + 1) * int (card (⋂I)))"
     ```
 
     <https://isabelle.in.tum.de/dist/library/HOL/HOL/Binomial.html>
@@ -1313,7 +1334,7 @@ update it, let me know.
     ```Isabelle
     theorem hessenberg_thereom:
       assumes "is_pappus"
-      shows "desargues_prop"
+      shows   "desargues_prop"
     ```
     
     <https://www.isa-afp.org/entries/Projective_Geometry.html>
@@ -1327,7 +1348,7 @@ update it, let me know.
     ```Isabelle
     theorem strong_Nullstellensatz:
       assumes "finite X" and "F ⊆ P[X]"
-      shows "ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"
+      shows   "ℐ (𝒱 F) = √ideal (F::((_::{countable,linorder} ⇒⇩0 nat) ⇒⇩0 _::alg_closed_field) set)"
     ```
 
     <https://www.isa-afp.org/entries/Nullstellensatz.html>
@@ -1450,12 +1471,12 @@ update it, let me know.
     ```Isabelle
     theorem (in function_ring_on) Stone_Weierstrass:
       assumes f: "continuous_on S f"
-      shows "∃F∈UNIV → R. uniform_limit S F f sequentially"
+      shows   "∃F∈UNIV → R. uniform_limit S F f sequentially"
       
     proposition Stone_Weierstrass_uniform_limit:
       fixes f :: "'a::euclidean_space ⇒ 'b::euclidean_space"
       assumes S: "compact S"
-        and f: "continuous_on S f"
+          and f: "continuous_on S f"
       obtains g where "uniform_limit S g f sequentially" and "⋀n. polynomial_function (g n)"
     ```
   
@@ -1475,7 +1496,9 @@ update it, let me know.
 1. <span id="135">Yoneda lemma<span>
 
     <https://www.isa-afp.org/entries/Category.html>
+    
     <https://www.isa-afp.org/entries/Category2.html>
+    
     <https://www.isa-afp.org/entries/Category3.html>
 
 1. <span id="136">ζ(-1) = -1 / 12<span>
